@@ -1,0 +1,68 @@
+@extends('admin/layouts/wrapper')
+
+@section('content')
+    <div class="">
+        <!-- Topbar -->
+        @include('admin.layouts.navbar')
+
+        <!-- Begin Page Content -->
+        <div class="container bg-light shadow p-4 ">
+
+            <form class="row" action="" method="POST">
+                @csrf <!-- Tambahkan CSRF token untuk keamanan -->
+                  @method('PUT') 
+                <div class="mb-3 col-md-6 ">
+                    <label for="nama" class="form-label">nama</label>
+                    <input value="{{ $user->nama }}" required name="nama" type="text" class="form-control"
+                        id="nama">
+                    @error('nama')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="alamat" class="form-label">alamat</label>
+                    <input value="{{  $user->alamat }}" name="alamat" type="text" class="form-control" id="alamat">
+                    @error('alamat')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="tempat_lahir" class="form-label">tempat_lahir</label>
+                    <input value="{{  $user->tempat_lahir }}" name="tempat_lahir" type="text" class="form-control"
+                        id="tempat_lahir">
+                    @error('tempat_lahir')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="tanggal_lahir" class="form-label">Tanggal lahir</label>
+                    <input value="{{  $user->tanggal_lahir }}" name="tanggal_lahir" type="text" class="form-control"
+                        id="tanggal_lahir">
+                    @error('tanggal_lahir')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="nik" class="form-label">nik</label>
+                    <input value="{{  $user->nik }}" name="nik" type="text" class="form-control" id="nik">
+                    @error('nik')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="username" class="form-label">username</label>
+                    <input value="{{  $user->username }}" name="username" type="text" class="form-control"
+                        id="username">
+                    @error('username')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+          
+
+                <button type="submit" class="btn btn-success col-md-12">Edit</button>
+            </form>
+        </div>
+
+    </div>
+@endsection
