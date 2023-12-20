@@ -1,13 +1,13 @@
      @extends('admin/layouts/wrapper')
      @section('content')
-         <div class="">
-             <!-- Topbar -->
-             @include('admin.layouts.navbar')
+         <!-- Topbar -->
+         @include('admin.layouts.navbar')
+         <div class="container">
 
              <!-- Begin Page Content -->
              <div class="container shadow p-4 ">
 
-                 <form  class="row " action="" method="POST">
+                 <form class="row " action="" method="POST">
                      @csrf <!-- Tambahkan CSRF token untuk keamanan -->
                      <div class="mb-3 col-md-6 ">
                          <label for="nama" class="form-label">nama</label>

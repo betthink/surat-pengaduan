@@ -6,11 +6,7 @@
          <div class="">
              <!-- Topbar -->
              @include('admin.layouts.navbar')
-
-             <!-- Begin Page Content -->
              <div class="container-fluid">
-
-                 <!-- DataTales  -->
                  <div class="card shadow mb-4">
                      <div class="card-header d-flex py-3 align-items-center w-100 justify-content-between">
                          <h6 class="m-0 font-weight-bold text-primary">Kelola Kata kunci</h6>
@@ -41,8 +37,8 @@
                                                  <td>{{ $data['kategori'] }}</td>
                                                  <td>{{ $data['keterangan'] }}</td>
                                                  <td class="d-flex w-100  justify-content-center ">
-                                                     <a href="{{ route('edit-masyarakat', ['id' => $data['id']]) }}"
-                                                         class="btn btn-outline-success w-50 mx-2 ">
+                                                     <a href="{{ route('edit.kata.kunci', ['id' => $data['id']]) }}"
+                                                         class="btn btn-outline-primary w-50 mx-2 ">
                                                          <i class="fa-solid fa-pen"></i>
                                                      </a>
 

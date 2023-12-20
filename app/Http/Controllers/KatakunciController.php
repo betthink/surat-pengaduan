@@ -44,7 +44,6 @@ class KatakunciController extends Controller
     }
     public function deleteKatakunci(int $id): RedirectResponse
     {
-      
         $katakunci = ModelKatakunci::find($id);
         if (!$katakunci) {
             return redirect()->back()->with('error', 'Kata kunci tidak ditemukan.');
@@ -60,48 +59,35 @@ class KatakunciController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus pengguna.');
         }
     }
-    public function updateMasyarakatView(int $id)
+    public function updateKatakunci(int $id)
     {
-        $user = ModelKatakunci::find($id);
-        if (!$user) {
+
+        $katakunci = ModelKatakunci::find($id);
+        if (!$katakunci) {
+
             return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
         }
-        return view('admin.masyarakat.edit_masyarakat', ['user' => $user]);
+        return view('admin.katakunci.edit_kata_kunci', ['katakunci' => $katakunci]);
     }
 
-    public function updateMasyarakatData(Request $request, int $id)
+    public function updateKatakunciPost(Request $request, int $id)
     {
-        $user = ModelKatakunci::find($id);
-        if (!$user) {
+        $katakunci = ModelKatakunci::find($id);
+        if (!$katakunci) {
             return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
         }
 
-        // Validasi input
         $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-            'tempat_lahir' => 'required|string|max:255',
-            'tanggal_lahir' => 'required',
-            'username' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'nik' => [
-                'required'
-            ],
+            'katakunci' => 'required|string|max:255',
+            'kategori' => 'required|string|max:255',
+            'keterangan' => 'required|string',
         ]);
-
-        // Update data pengguna
-        $user->nama = $validatedData['nama'];
-        $user->alamat = $validatedData['alamat'];
-        $user->tempat_lahir = $validatedData['tempat_lahir'];
-        $user->nik = $validatedData['nik'];
-        $user->tanggal_lahir = $request->tanggal_lahir;
-        $user->username = $validatedData['username'];
-        $result = $user->save();
+        $katakunci->kata = $validatedData['katakunci'];
+        $katakunci->kategori = $validatedData['kategori'];
+        $katakunci->keterangan = $validatedData['keterangan'];
+        $result = $katakunci->save();
         if ($result) {
-            return redirect('/kelola-masyarakat');
+            return redirect('/kelola-kata-kunci')->with('success', 'berhasil melakukan edit data');
         }
     }
 }

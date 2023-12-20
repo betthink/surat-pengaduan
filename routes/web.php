@@ -48,4 +48,7 @@ Route::get('/kelola-kata-kunci', [KatakunciController::class, 'show'])->name('ke
 Route::get('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
 Route::post('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
 Route::delete('/hapus-kata-kunci/{id}', [KatakunciController::class, 'deleteKatakunci'])->name('hapus.kata.kunci');
+Route::get('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunci'])->name('edit.kata.kunci');
+Route::put('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunciPost'])->name('edit-kata-kunci');
+
 // kelola admin
