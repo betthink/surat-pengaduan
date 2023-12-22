@@ -37,8 +37,9 @@
                                          <td>2011/04/25</td>
                                          <td>2011/04/25</td>
                                          <td>
-                                             <button class="btn btn-outline-primary">edit</button>
-                                             <button class="btn btn-outline-danger">hapus</button>
+                                             <button class="btn btn-outline-primary">Filter</button>
+                                             <button class="btn btn-outline-success ml-2"><i
+                                                     class="fa-solid fa-circle-down"></i></button>
                                          </td>
                                      </tr>
                                  </tbody>

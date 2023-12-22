@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'publicusers' => [
+            'driver' => 'session',
+            'provider' => 'publicusers',
+        ],
+        'adminusers' => [
+            'driver' => 'session',
+            'provider' => 'adminusers',
+        ],
     ],
 
     /*
@@ -60,10 +68,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\ModelAuth::class,
+        // ],
+        'publicusers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ModelMasyarakat::class,
+        ],
+        'adminusers' => [
             'driver' => 'eloquent',
             'model' => App\Models\ModelAuth::class,
         ],
+
 
         // 'users' => [
         //     'driver' => 'database',

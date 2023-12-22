@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthPublicController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KatakunciController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegistrationPublicController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -24,8 +27,21 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+// public---
+// login
+
+Route::get('/', [AuthPublicController::class, 'show']);
+Route::post('/', [AuthPublicController::class, 'login']);
+Route::get('/public/logout', [AuthPublicController::class, 'logout'])->name('logout');
+Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
+// registration 
+Route::get('/registrasi', [RegistrationPublicController::class, 'show']);
+
+
+
 // auth
-Route::get('/', [AuthController::class, 'show']);
+Route::get('/admin/login', [AuthController::class, 'show']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/tambah-admin', [AuthController::class, 'addAdmin']);
 Route::post('/tambah-admin', [AuthController::class, 'addAdmin']);

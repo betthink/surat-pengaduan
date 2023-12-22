@@ -25,11 +25,11 @@
                              <div class="d-flex">
                                  <div class="w-100">
                                      <h3 class="">Selamat Datang</h3>
-                                     <h5 class="mb-4">Admin sihlakan melakukan login</h5>
+                                     <h5 class="mb-4">Masyarakat sihlakan melakukan login</h5>
                                  </div>
 
                              </div>
-                             <form class="signin-form " action="/login" method="POST">
+                             <form class="signin-form " action="" method="POST">
                                  @csrf <!-- Tambahkan CSRF token untuk keamanan -->
 
                                  <div class="mb-3 col">
@@ -51,7 +51,7 @@
 
                                  <button type="submit" class="btn btn-primary rounded col-md-12">Daftar</button>
                              </form>
-                             <p class="text-center">Belum terdaftar?<a href="/tambah-admin"> Daftar
+                             <p class="text-center">Belum terdaftar?<a href="/registrasi"> Daftar
                                      disini</a></p>
                          </div>
                      </div>
