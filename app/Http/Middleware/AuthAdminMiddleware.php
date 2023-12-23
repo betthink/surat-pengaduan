@@ -17,11 +17,10 @@ class AuthAdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Periksa apakah pengguna sudah login dengan guard 'publicusers'
-        if (Auth::guard('publicusers')->check()) {
+        if (Auth::guard('adminusers')->check()) {
             return $next($request);
         }
-
         // Jika tidak, redirect ke halaman login publik
-        return redirect('/')->with('error', 'Anda harus login untuk mengakses halaman ini.');
+        return redirect()->route('admin-login')->with('error', 'Anda harus sebagai admin login untuk mengakses halaman ini.');
     }
 }

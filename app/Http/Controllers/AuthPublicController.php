@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\ModelMasyarakat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AuthPublicController extends Controller
 {
     //
     public function show()
     {
-        return view('public.login', ['title' => 'Halaman Login']);
+        return view('public.login_public', ['title' => 'Halaman Login']);
     }
     public function login(Request $request)
     {
@@ -37,5 +39,46 @@ class AuthPublicController extends Controller
     {
         Auth::guard('publicusers')->logout();
         return redirect('/')->with('success', 'Logout berhasil!');
+    }
+    public function register(Request $request)
+    {
+        if ($request->isMethod('get')) {
+
+            return view('public.registrasi_public');
+        }
+
+        $validatedData = $request->validate([
+            'nama' => 'required|string',
+            'alamat' => 'required|string',
+            'tempat_lahir' => 'required|string',
+            'tanggal_lahir' => 'required',
+            'username' => [
+                'required',
+                'string',
+                'max:255',
+                // Rule::unique('tb_masyarakat', 'username'),
+            ],
+            'password' => 'required|min:6',
+            'nik' => [
+                'required',
+                Rule::unique('masyarakat', 'nik'),
+            ],
+        ]);
+        // Buat pengguna baru
+        $user = new ModelMasyarakat();
+        $user->nama = $request->nama;
+        $user->username = $request->nama;
+        $user->alamat = $request->alamat;
+        $user->tempat_lahir = $request->tempat_lahir;
+        $user->nik = $request->nik;
+        $user->tanggal_lahir = $request->tanggal_lahir;
+        $isPublic = $request->status === 'public';
+        $user->password = Hash::make($request->password);
+        $result = $user->save();
+        if ($result && $isPublic) {
+            return redirect()->route('public-login');
+        } elseif ($result) {
+            return redirect('/kelola-masyarakat');
+        }
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ModelAuth extends Model implements Authenticatable
+class ModelAuthAdmin extends Model implements Authenticatable
 {
     use HasFactory;
     use AuthenticatableTrait;

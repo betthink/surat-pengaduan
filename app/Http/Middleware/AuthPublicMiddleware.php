@@ -21,6 +21,6 @@ class AuthPublicMiddleware
         }
 
         // Jika tidak, redirect ke halaman login publik
-        return redirect('/')->with('error', 'Anda harus login untuk mengakses halaman ini.');
+        return redirect('/')->with('error', 'Sihlakan lakukan login terlebih dulu');
     }
 }
