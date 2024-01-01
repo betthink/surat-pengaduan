@@ -6,9 +6,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthPublicController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HasilPublicController;
 use App\Http\Controllers\KatakunciController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PengaduanPublicController;
 use App\Http\Controllers\RegistrationPublicController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,10 +37,8 @@ Route::post('/public/registrasi', [AuthPublicController::class, 'register'])->na
 Route::get('/', [AuthPublicController::class, 'show'])->name('public-login');
 Route::post('/', [AuthPublicController::class, 'login'])->name('public-login');
 Route::get('/public/logout', [AuthPublicController::class, 'logout'])->name('logout');
-Route::group(['middleware' => 'auth.public'], function () {
-    // Rute-rute yang memerlukan autentikasi untuk pengguna publik
-    Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
-});
+
+
 // admin---
 // login 
 Route::get('/admin/login', [AuthAdminController::class, 'show'])->name('admin-login');
@@ -46,12 +46,20 @@ Route::get('/admin/registrasi', [AuthAdminController::class, 'register'])->name(
 Route::post('/admin/registrasi', [AuthAdminController::class, 'register'])->name('admin-register');
 Route::get('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin-logout');
 
+Route::group(['middleware' => 'auth.public'], function () {
+    // Rute-rute yang memerlukan autentikasi untuk pengguna publik
+    Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
+    Route::get('/public/hasil', [HasilPublicController::class, 'show'])->name('public-hasil');
+    Route::get('/public/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
+    Route::post('/public/pengaduan', [PengaduanPublicController::class, 'submit'])->name('public-pengaduan');
+});
 // Route::get('/admin/login', [AuthController::class, 'show']);
-Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
+// Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
+Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 Route::group(['middleware' => 'auth.admin'], function () {
     // Rute-rute yang memerlukan autentikasi untuk pengguna admin
 
-    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
     // pengaduan
     Route::get('/kelola-pengaduan', [PengaduanController::class, 'show']);
     // masyarakat

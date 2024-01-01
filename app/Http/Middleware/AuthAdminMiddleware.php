@@ -16,8 +16,9 @@ class AuthAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Periksa apakah pengguna sudah login dengan guard 'publicusers'
+        // Periksa apakah pengguna sudah login dengan guard 'adminusers'
         if (Auth::guard('adminusers')->check()) {
+            
             return $next($request);
         }
         // Jika tidak, redirect ke halaman login publik

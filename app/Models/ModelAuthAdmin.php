@@ -3,16 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ModelAuthAdmin extends Model implements Authenticatable
+class ModelAuthAdmin extends Model implements AuthenticatableContract
 {
-    use HasFactory;
-    use AuthenticatableTrait;
-    protected $table = 'admin';
+    use Authenticatable, HasFactory;
     public $timestamps = false;
+    protected $table = 'admin';
     protected $fillable = [
         'nama',
         'username',

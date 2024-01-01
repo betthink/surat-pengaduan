@@ -10,7 +10,7 @@ class DashboardController extends Controller
 
     public function show(): View
     {
-        $user = Auth::guard('adminusers')->user();
+        $user = Auth::guard('publicusers')->user();
         return view('admin.dashboard', ['user' => $user]);
     }
 }

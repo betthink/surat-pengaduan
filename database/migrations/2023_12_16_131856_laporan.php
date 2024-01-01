@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('judul_perkara', 100);
             $table->string('status', 100);
             $table->longText('deskripsi');
-            $table->string('hasil', 100);
+            $table->string('hasil', 100)->nullable();
             $table->date('tanggal');
-            $table->string('rujukan');
+            $table->string('rujukan')->nullable();
             $table->integer('id_user');
         });
     }
@@ -31,5 +31,16 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::create('laporan', function (Blueprint $table) {
+            $table->id('id_lp');
+            $table->string('nama_terlapor', 100);
+            $table->string('judul_perkara', 100);
+            $table->string('status', 100);
+            $table->longText('deskripsi');
+            $table->string('hasil', 100);
+            $table->date('tanggal');
+            $table->string('rujukan');
+            $table->integer('id_user');
+        });
     }
 };

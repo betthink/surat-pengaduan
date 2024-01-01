@@ -40,15 +40,29 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'publicusers' => [
-            'driver' => 'session',
-            'provider' => 'publicusers',
-        ],
+
         'adminusers' => [
             'driver' => 'session',
-            'provider' => 'adminusers',
+            'provider' => 'provideruseradmin',
+        ],
+        'publicusers' => [
+            'driver' => 'session',
+            'provider' => 'providerpublicusers',
         ],
     ],
+    'providers' => [
+        'provideruseradmin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ModelAuthAdmin::class,
+        ],
+        'providerpublicusers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ModelMasyarakat::class,
+        ]
+
+    ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -67,26 +81,26 @@ return [
     |
     */
 
-    'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\ModelAuth::class,
-        // ],
-        'publicusers' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\ModelMasyarakat::class,
-        ],
-        'adminusers' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\ModelAuthAdmin::class,
-        ],
+    // 'providers' => [
+    //     // 'users' => [
+    //     //     'driver' => 'eloquent',
+    //     //     'model' => App\Models\ModelAuth::class,
+    //     // ],
+    //     'publicusers' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Models\ModelMasyarakat::class,
+    //     ],
+    //     'adminusers' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Models\ModelAuthAdmin::class,
+    //     ],
 
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-    ],
+    //     // 'users' => [
+    //     //     'driver' => 'database',
+    //     //     'table' => 'users',
+    //     // ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
