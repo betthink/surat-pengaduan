@@ -53,7 +53,7 @@ class KatakunciController extends Controller
             // Hapus pengguna
             $katakunci->delete();
             // Redirect dengan pesan sukses
-            return redirect()->back()->with('success', 'kata kunci berhasil dihapus.');
+            return redirect()->back()->with('success', 'kata kunci berhasil dihapus');
         } catch (\Exception $e) {
             // Tangani kesalahan jika terjadi
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus pengguna.');

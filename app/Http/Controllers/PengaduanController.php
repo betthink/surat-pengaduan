@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ModelPengaduan;
 use Illuminate\View\View;
 
 class PengaduanController extends Controller
@@ -9,6 +10,7 @@ class PengaduanController extends Controller
 
     public function show(): View
     {
-        return view('admin.kelola_pengaduan', ['username' => 'Robetson']);
+        $dataPengaduan = ModelPengaduan::all()->toArray();
+        return view('admin.kelola_pengaduan', ['username' => 'Robetson', 'data' => $dataPengaduan]);
     }
 }

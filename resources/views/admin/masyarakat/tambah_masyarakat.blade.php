@@ -7,7 +7,7 @@
              <!-- Begin Page Content -->
              <div class="container shadow p-4 ">
 
-                 <form class="row " action="" method="POST">
+                 <form class="row " action="{{ route('tambah-masyarakat') }}" method="POST">
                      @csrf <!-- Tambahkan CSRF token untuk keamanan -->
                      <div class="mb-3 col-md-6 ">
                          <label for="nama" class="form-label">nama</label>
@@ -34,7 +34,7 @@
                      </div>
                      <div class="mb-3 col-md-6">
                          <label for="tanggal_lahir" class="form-label">Tanggal lahir</label>
-                         <input value="{{ old('tanggal_lahir') }}" name="tanggal_lahir" type="text" class="form-control"
+                         <input value="{{ old('tanggal_lahir') }}" name="tanggal_lahir" type="date" class="form-control"
                              id="tanggal_lahir">
                          @error('tanggal_lahir')
                              <div class="alert alert-danger">{{ $message }}</div>

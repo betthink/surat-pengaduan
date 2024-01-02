@@ -64,10 +64,11 @@ class AuthPublicController extends Controller
                 Rule::unique('masyarakat', 'nik'),
             ],
         ]);
+     
         // Buat pengguna baru
         $user = new ModelMasyarakat();
         $user->nama = $request->nama;
-        $user->username = $request->nama;
+        $user->username = $request->username;
         $user->alamat = $request->alamat;
         $user->tempat_lahir = $request->tempat_lahir;
         $user->nik = $request->nik;
@@ -76,7 +77,7 @@ class AuthPublicController extends Controller
         $user->password = Hash::make($request->password);
         $result = $user->save();
         if ($result && $isPublic) {
-            return redirect()->route('public-login');
+            return redirect()->route('public-login')->with('success', 'Berhasil registrasi akun');
         } elseif ($result) {
             return redirect('/kelola-masyarakat');
         }

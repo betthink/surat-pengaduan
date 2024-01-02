@@ -16,7 +16,6 @@
                   @endif
                   <div class="row justify-content-center">
                       <div class="col-md-6 col text-center mb-5">
-                          <h2 class="heading-section">Selamat datang Warga</h2>
                           <h2 class="heading-section">Sihlakan melakukan registrasi</h2>
                       </div>
                       
@@ -45,7 +44,7 @@
                           @enderror
                       </div>
                   <div class="row justify-content-center">
-                      <div class="col-md-8 col-lg-8">
+                      <div class="col-md-6 col-lg-6">
                           <div class="login-wrap p-0">
                               <form action="{{ route('public-register') }}" method="POST"
                                   class="signin-form row col-md-12">
@@ -68,7 +67,7 @@
                                           class="form-control" placeholder="tempat_lahir" required>
                                   </div>
                                   <div class="form-group col-md-6 col">
-                                      <input value="{{ old('tanggal_lahir') }}" name="tanggal_lahir" type="text"
+                                      <input value="{{ old('tanggal_lahir') }}" name="tanggal_lahir" type="date"
                                           class="form-control" placeholder="tanggal_lahir" required>
                                   </div>
                                   <div class="form-group col-md-6 col">

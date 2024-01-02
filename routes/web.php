@@ -57,26 +57,28 @@ Route::group(['middleware' => 'auth.public'], function () {
 // Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
 Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
-Route::group(['middleware' => 'auth.admin'], function () {
-    // Rute-rute yang memerlukan autentikasi untuk pengguna admin
+// start  midleware admin
+// Route::group(['middleware' => 'auth.admin'], function () {
+// Rute-rute yang memerlukan autentikasi untuk pengguna admin
 
-    // pengaduan
-    Route::get('/kelola-pengaduan', [PengaduanController::class, 'show']);
-    // masyarakat
-    Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show']);
-    Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat']);
-    Route::get('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatView'])->name('edit-masyarakat');
-    Route::put('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatData'])->name('edit-masyarakat');
-    Route::post('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat']);
-    Route::delete('/hapus-masyarakat/{id}', [MasyarakatController::class, 'deleteMasyarakat'])->name('hapus.masyarakat');
+// pengaduan
+Route::get('/kelola-pengaduan', [PengaduanController::class, 'show']);
+// masyarakat
+Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show']);
+Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');
+Route::get('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatView'])->name('edit-masyarakat');
+Route::put('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatData'])->name('edit-masyarakat');
+Route::post('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');;
+Route::delete('/hapus-masyarakat/{id}', [MasyarakatController::class, 'deleteMasyarakat'])->name('hapus.masyarakat');
 
-    // kata kunci
-    Route::get('/kelola-kata-kunci', [KatakunciController::class, 'show'])->name('kelola-kata-kunci');
-    Route::get('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
-    Route::post('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
-    Route::delete('/hapus-kata-kunci/{id}', [KatakunciController::class, 'deleteKatakunci'])->name('hapus.kata.kunci');
-    Route::get('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunci'])->name('edit.kata.kunci');
-    Route::put('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunciPost'])->name('edit-kata-kunci');
+// kata kunci
+Route::get('/kelola-kata-kunci', [KatakunciController::class, 'show'])->name('kelola-kata-kunci');
+Route::get('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
+Route::post('/tambah-kata-kunci', [KatakunciController::class, 'addKatakunci']);
+Route::delete('/hapus-kata-kunci/{id}', [KatakunciController::class, 'deleteKatakunci'])->name('hapus.kata.kunci');
+Route::get('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunci'])->name('edit.kata.kunci');
+Route::put('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunciPost'])->name('edit-kata-kunci');
 
     // kelola admin
-});
+// });
+// end  midleware admin

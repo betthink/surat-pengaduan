@@ -12,9 +12,16 @@
                      <div class="card-header d-flex py-3 align-items-center w-100 justify-content-between">
                          <h6 class="m-0 font-weight-bold text-primary">Kelola user / masyarakat</h6>
                          @if (session('success'))
-                             <div class="alert alert-success">
-                                 {{ session('success') }}
-                             </div>
+                             <script>
+                                 document.addEventListener('DOMContentLoaded', function() {
+                                     Swal.fire({
+                                         title: 'Success!',
+                                         text: "'{{ session('success') }}'",
+                                         icon: 'success',
+                                         confirmButtonText: 'OK'
+                                     });
+                                 });
+                             </script>
                          @endif
                          <a href="/tambah-masyarakat" class="btn btn-outline-success">Tambah
                              masyarakat</a>
@@ -142,5 +149,4 @@
 
 
          </div>
-
      @endsection

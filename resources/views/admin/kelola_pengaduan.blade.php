@@ -28,20 +28,26 @@
                                      </tr>
                                  </thead>
                                  <tbody>
-                                     <tr>
-                                         <td>Tiger Nixon</td>
-                                         <td>System Architect</td>
-                                         <td>Edinburgh</td>
-                                         <td>61</td>
-                                         <td>2011/04/25</td>
-                                         <td>2011/04/25</td>
-                                         <td>2011/04/25</td>
-                                         <td>
-                                             <button class="btn btn-outline-primary">Filter</button>
-                                             <button class="btn btn-outline-success ml-2"><i
-                                                     class="fa-solid fa-circle-down"></i></button>
-                                         </td>
-                                     </tr>
+                                     @foreach ($data as $item)
+                                         <tr>
+                                             <td>{{ $item['nama_terlapor'] }}</td>
+                                             <td>{{ $item['judul_perkara'] }}</td>
+                                             <td>{{ $item['deskripsi'] }}</td>
+                                             <td
+                                                 class="{{ $item['status'] === 'Diproses' ? 'text-success' : 'text-danger' }}">
+                                                 {{ $item['status'] }}</td>
+
+                                             <td>{{ $item['hasil'] }}</td>
+                                             <td>{{ $item['tanggal'] }}</td>
+                                             <td>{{ $item['rujukan'] }}</td>
+                                             <td class="d-flex my-1">
+                                                 <button class="btn btn-outline-primary">Filter</button>
+                                                 <button class="btn btn-outline-success ml-2"><i
+                                                         class="fa-solid fa-circle-down"></i></button>
+                                             </td>
+                                         </tr>
+                                     @endforeach
+
                                  </tbody>
                              </table>
                          </div>

@@ -58,7 +58,7 @@ class MasyarakatController extends Controller
         // Simpan pengguna ke dalam database
         $result = $user->save();
         if ($result) {
-            return redirect('/kelola-masyarakat');
+            return redirect('/kelola-masyarakat')->with('success', 'Berhasil menambahkan masyarakat');
         }
     }
     public function deleteMasyarakat(int $id): RedirectResponse
@@ -78,7 +78,7 @@ class MasyarakatController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus pengguna.');
         }
     }
-    public function updateMasyarakatView( int $id)
+    public function updateMasyarakatView(int $id)
     {
         $user = ModelMasyarakat::find($id);
         if (!$user) {

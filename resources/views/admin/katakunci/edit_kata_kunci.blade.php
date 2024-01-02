@@ -41,7 +41,7 @@
                              <div class="alert alert-danger">{{ $message }}</div>
                          @enderror
                      </div>
-                     <button type="submit" class="btn btn-outline-primary col-md-12">Tambahkan</button>
+                     <button type="submit" class="btn btn-success col-md-12">Ubah</button>
                  </form>
              </div>
 
