@@ -32,3 +32,6 @@
 .bg-main {
    background: linear-gradient(to bottom, #4e73df, #6f42c1);
 }
+.bg-nav {
+   background: linear-gradient(to right, #4e73df, #6f42c1);
+}

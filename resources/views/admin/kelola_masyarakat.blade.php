@@ -15,11 +15,13 @@
                              <script>
                                  document.addEventListener('DOMContentLoaded', function() {
                                      Swal.fire({
-                                         title: 'Success!',
-                                         text: "'{{ session('success') }}'",
-                                         icon: 'success',
-                                         confirmButtonText: 'OK'
-                                     });
+                                  title: 'Success!',
+                                  text: "'{{ session('success') }}'",
+                                  icon: 'success',
+                                  position: "top",
+                                  showConfirmButton: false,
+                                  timer: 1500
+                              });
                                  });
                              </script>
                          @endif
@@ -33,7 +35,7 @@
                                      <tr>
                                          <th>Username</th>
                                          <th>Nama</th>
-                                         <th>Alamat</th>
+                                         <th>Alamat</th>    
                                          <th>NIK</th>
                                          <th>Tanggal Lahir</th>
                                          <th>Tempat Lahir</th>

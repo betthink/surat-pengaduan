@@ -29,14 +29,14 @@ use Illuminate\Support\Facades\Route;
 
 // public---
 // registration 
-Route::get('/public/registrasi', [AuthPublicController::class, 'show'])->name('public-register');
-Route::get('/public/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
-Route::post('/public/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
+Route::get('/registrasi', [AuthPublicController::class, 'show'])->name('public-register');
+Route::get('/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
+Route::post('/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
 
 // login
-Route::get('/', [AuthPublicController::class, 'show'])->name('public-login');
-Route::post('/', [AuthPublicController::class, 'login'])->name('public-login');
-Route::get('/public/logout', [AuthPublicController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthPublicController::class, 'show'])->name('public-login');
+Route::post('/login', [AuthPublicController::class, 'login'])->name('public-login');
+Route::get('/logout', [AuthPublicController::class, 'logout'])->name('logout');
 
 
 // admin---
@@ -49,22 +49,23 @@ Route::get('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin
 Route::group(['middleware' => 'auth.public'], function () {
     // Rute-rute yang memerlukan autentikasi untuk pengguna publik
     Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
-    Route::get('/public/hasil', [HasilPublicController::class, 'show'])->name('public-hasil');
-    Route::get('/public/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
-    Route::post('/public/pengaduan', [PengaduanPublicController::class, 'submit'])->name('public-pengaduan');
+    Route::get('/hasil', [HasilPublicController::class, 'show'])->name('public-hasil');
+    Route::get('/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
+    Route::post('/pengaduan', [PengaduanPublicController::class, 'submit'])->name('public-pengaduan');
 });
-// Route::get('/admin/login', [AuthController::class, 'show']);
-// Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
-Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
-Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
-// start  midleware admin
-// Route::group(['middleware' => 'auth.admin'], function () {
-// Rute-rute yang memerlukan autentikasi untuk pengguna admin
+Route::get('/admin/login', [AuthAdminController::class, 'show']);
+Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
+// Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
 
+// start  midleware admin
+Route::group(['middleware' => 'auth.admin'], function () {
+    // Rute-rute yang memerlukan autentikasi untuk pengguna admin
+    // dashboard
+    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 // pengaduan
-Route::get('/kelola-pengaduan', [PengaduanController::class, 'show']);
+Route::get('/kelola-pengaduan', [PengaduanController::class, 'show'])->name('kelola-pengaduan');
 // masyarakat
-Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show']);
+Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show'])->name('kelola-masyarakat');
 Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');
 Route::get('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatView'])->name('edit-masyarakat');
 Route::put('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatData'])->name('edit-masyarakat');
@@ -80,5 +81,5 @@ Route::get('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunc
 Route::put('/edit-kata-kunci/{id}', [KatakunciController::class, 'updateKatakunciPost'])->name('edit-kata-kunci');
 
     // kelola admin
-// });
+});
 // end  midleware admin

@@ -13,7 +13,14 @@
                          @if (session('success'))
                              <script>
                                  document.addEventListener('DOMContentLoaded', function() {
-                                     Swal.fire("{{ session('success') }}");
+                                     Swal.fire({
+                                         title: 'Success!',
+                                         text: "'{{ session('success') }}'",
+                                         icon: 'success',
+                                         position: "top",
+                                         showConfirmButton: false,
+                                         timer: 1500
+                                     });
                                  });
                              </script>
                          @endif

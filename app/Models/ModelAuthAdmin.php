@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ModelAuthAdmin extends Model implements AuthenticatableContract
 {
     use Authenticatable, HasFactory;
+
     public $timestamps = false;
     protected $table = 'admin';
     protected $fillable = [

@@ -38,7 +38,7 @@ class AuthPublicController extends Controller
     public function logout()
     {
         Auth::guard('publicusers')->logout();
-        return redirect('/')->with('success', 'Logout berhasil!');
+        return redirect('/login')->with('success', 'Logout berhasil!');
     }
     public function register(Request $request)
     {
@@ -56,7 +56,7 @@ class AuthPublicController extends Controller
                 'required',
                 'string',
                 'max:255',
-                // Rule::unique('tb_masyarakat', 'username'),
+                Rule::unique('masyarakat', 'username'),
             ],
             'password' => 'required|min:6',
             'nik' => [

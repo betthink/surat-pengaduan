@@ -18,36 +18,56 @@
                       <div class="col-md-6 col text-center mb-5">
                           <h2 class="heading-section">Sihlakan melakukan registrasi</h2>
                       </div>
-                      
+
                   </div>
                   <div>
-                          @error('username')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('nama')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('alamat')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('tempat_lahir')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('tanggal_lahir')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('nik')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                          @error('password')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                      </div>
+                      @error('username')
+                          <script>
+                              document.addEventListener('DOMContentLoaded', function() {
+                                  Swal.fire({
+                                      title: 'Gagal registrasi!',
+                                      text: "'{{ $message }}'",
+                                      icon: 'error',
+                                      position: "top",
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                  });
+                              });
+                          </script>
+                      @enderror
+                      @error('nik')
+                          <script>
+                              document.addEventListener('DOMContentLoaded', function() {
+                                  Swal.fire({
+                                      title: 'Gagal registrasi!',
+                                      text: "'{{ $message }}'",
+                                      icon: 'error',
+                                      position: "top",
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                  });
+                              });
+                          </script>
+                      @enderror
+                      @error('password')
+                          <script>
+                              document.addEventListener('DOMContentLoaded', function() {
+                                  Swal.fire({
+                                      title: 'Gagal registrasi!',
+                                      text: "'{{ $message }}'",
+                                      icon: 'error',
+                                      position: "top",
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                  });
+                              });
+                          </script>
+                      @enderror
+                  </div>
                   <div class="row justify-content-center">
                       <div class="col-md-6 col-lg-6">
                           <div class="login-wrap p-0">
-                              <form action="{{ route('public-register') }}" method="POST"
-                                  class="signin-form row col-md-12">
+                              <form action="" method="POST" class="signin-form row col-md-12">
                                   @csrf
                                   <div class="form-group col-md-6 col">
                                       <input value="{{ old('nama') }}" name="nama" type="text" class="form-control"
@@ -75,8 +95,7 @@
                                           placeholder="nik" required>
                                   </div>
                                   <div class="invisible form-group col-md-6 col">
-                                      <input value="public" name="status" type="text" class="form-control"
-                                          required>
+                                      <input value="public" name="status" type="text" class="form-control" required>
                                   </div>
                                   <div class="form-group col-md-6 col">
                                       <input value="{{ old('password') }}" name="password" id="password-field"

@@ -13,7 +13,7 @@ class AuthAdminController extends Controller
     //
     public function show(): View
     {
-        return view('admin.login');
+        return view('admin.login_admin');
     }
     public function login(Request $request)
     {
@@ -26,7 +26,7 @@ class AuthAdminController extends Controller
             'password' => strval($validatedData['password']),
         ];
 
-        if (Auth::guard('useradmin')->attempt($credentials)) {
+        if (Auth::guard('adminusers')->attempt($credentials)) {
             // Autentikasi berhasil
             return redirect()->route('dashboard')->with('success', 'Login berhasil!');
         } else {
@@ -37,8 +37,8 @@ class AuthAdminController extends Controller
 
     public function logout()
     {
-        Auth::guard('useradmin')->logout();
-        return redirect('/login/admin')->with('success', 'Log out Admin berhasil!');
+        Auth::guard('adminusers')->logout();
+        return redirect('/admin/login')->with('success', 'Log out Admin berhasil!');
     }
     public function register(Request $request)
     {

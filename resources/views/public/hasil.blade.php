@@ -6,9 +6,18 @@
 
                   <h3>Hasil</h3>
                   @if (session('success'))
-                      <div class="alert alert-success">
-                          {{ session('success') }}
-                      </div>
+                      <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                              Swal.fire({
+                                  title: 'Success!',
+                                  text: "'{{ session('success') }}'",
+                                  icon: 'success',
+                                  position: "top",
+                                  showConfirmButton: false,
+                                  timer: 1500
+                              });
+                          });
+                      </script>
                   @endif
               </div>
               <!-- DataTales  -->
@@ -16,11 +25,6 @@
                   <div class="card shadow mb-4">
                       <div class="card-header d-flex py-3 align-items-center w-100 justify-content-between">
                           <h6 class="m-0 font-weight-bold text-secondary">Daftar pengaduan</h6>
-                          @if (session('success'))
-                              <div class="alert alert-success">
-                                  {{ session('success') }}
-                              </div>
-                          @endif
 
                       </div>
                       <div class="card-body">

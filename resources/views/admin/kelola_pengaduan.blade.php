@@ -3,7 +3,20 @@
          <div class="">
              <!-- Topbar -->
              @include('admin.layouts.navbar')
-
+             @if (session('success'))
+                 <script>
+                     document.addEventListener('DOMContentLoaded', function() {
+                         Swal.fire({
+                             title: 'Success!',
+                             text: "'{{ session('success') }}'",
+                             icon: 'success',
+                             position: "top",
+                             showConfirmButton: false,
+                             timer: 1500
+                         });
+                     });
+                 </script>
+             @endif
              <!-- Begin Page Content -->
              <div class="container-fluid">
 

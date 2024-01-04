@@ -5,25 +5,39 @@
           <section class="ftco-section">
               <div class="container">
                   @if (session('success'))
-                      <div class="alert alert-success">
-                          {{ session('success') }}
-                      </div>
+                      <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                              Swal.fire({
+                                  title: 'Success!',
+                                  text: "'{{ session('success') }}'",
+                                  icon: 'success',
+                                  position: "top",
+                                  showConfirmButton: false,
+                                  timer: 1500
+                              });
+                          });
+                      </script>
                   @endif
                   @if (session('error'))
-                      <div class="alert alert-danger">
-                          {{ session('error') }}
-                      </div>
+                      <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                              Swal.fire({
+                                  title: 'Gagal login!',
+                                  text: "'{{ session('error') }}'",
+                                  icon: 'error',
+                                  position: "top",
+                                  showConfirmButton: false,
+                                  timer: 1500
+                              });
+                          });
+                      </script>
                   @endif
+                
                   <div class="row justify-content-center">
                       <div class="col-md-6 text-center mb-5">
                           <h2 class="heading-section">Selamat datang Warga</h2>
                       </div>
-                      @error('username')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                      @enderror
-                      @error('password')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                      @enderror
+                  
                   </div>
                   <div class="row justify-content-center">
                       <div class="col-md-6 col-lg-4">

@@ -16,6 +16,8 @@
 
 <body class="img js-fullheight" style="background-image: url({{ asset('assets/login/images/bgx.jpg') }});">
     @yield('wrapperLogin')
+
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('assets/login-20/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/login-20/js/popper.js') }}"></script>
     <script src="{{ asset('assets/login-20/js/bootstrap.min.js') }}"></script>
