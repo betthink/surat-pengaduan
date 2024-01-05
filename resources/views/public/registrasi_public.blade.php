@@ -84,11 +84,11 @@
 
                                   <div class="form-group col-md-6 col">
                                       <input value="{{ old('tempat_lahir') }}" name="tempat_lahir" type="text"
-                                          class="form-control" placeholder="tempat_lahir" required>
+                                          class="form-control" placeholder="Tempat lahir" required>
                                   </div>
                                   <div class="form-group col-md-6 col">
                                       <input value="{{ old('tanggal_lahir') }}" name="tanggal_lahir" type="date"
-                                          class="form-control" placeholder="tanggal_lahir" required>
+                                          class="form-control" placeholder="Tanggal lahir" required>
                                   </div>
                                   <div class="form-group col-md-6 col">
                                       <input value="{{ old('nik') }}" name="nik" type="text" class="form-control"

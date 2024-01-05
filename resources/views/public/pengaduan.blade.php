@@ -9,33 +9,33 @@
 
                       <form class="row " action="" method="POST">
                           @csrf <!-- Tambahkan CSRF token untuk keamanan -->
-                          
+
                           <div class="mb-3 col-md-6 ">
-                              <label for="nama" class="form-label">Nama terlapor</label>
-                              <input value="{{ old('nama_terlapor') }}" name="nama_terlapor" type="text"
-                                  class="form-control" id="nama_terlapor">
+                              {{-- <label for="nama" class="form-label">Nama terlapor</label> --}}
+                              <input placeholder="masukkan nama terlapor" value="{{ old('nama_terlapor') }}"
+                                  name="nama_terlapor" type="text" class="form-control" id="nama_terlapor">
                               @error('nama_terlapor')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
                           </div>
-                          <div class="mb-3 col-md-6">
-                              <label for="judul_perkara" class="form-label">Judul perkara</label>
-                              <input value="{{ old('judul_perkara') }}" name="judul_perkara" type="text"
-                                  class="form-control" id="judul_perkara">
+                        <div class="mb-3 col-md-6">
+                              {{-- <label for="judul_perkara" class="form-label">Judul perkara</label> --}}
+                              <input placeholder="masukkan judul perkara" value="{{ old('judul_perkara') }}"
+                                  name="judul_perkara" type="text" class="form-control" id="judul_perkara">
                               @error('judul_perkara')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
                           </div>
                           <div class="mb-3 col-md-6">
-                              <label for="deskripsi" class="form-label">deskripsi</label>
-                              <textarea value="{{ old('deskripsi') }}" name="deskripsi" type="text"  class="form-control"
-                                  id="deskripsi"cols="30" rows="8"></textarea>
+                              {{-- <label for="deskripsi" class="form-label">deskripsi</label> --}}
+                              <textarea placeholder="tuliskan deskripsi" value="{{ old('deskripsi') }}" name="deskripsi" type="text"
+                                  class="form-control" id="deskripsi"cols="30" rows="8"></textarea>
                               @error('deskripsi')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
                           </div>
 
-                          <button type="submit" class="btn btn-outline-success col-md-12">Masukkan</button>
+                          <button type="submit" class="btn btn-secondary col-md-12">Masukkan</button>
                       </form>
                   </div>
               </div>

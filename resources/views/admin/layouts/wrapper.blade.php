@@ -30,7 +30,6 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg-main sidebar sidebar-dark accordion" id="accordionSidebar">
 

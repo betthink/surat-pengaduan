@@ -1,68 +1,51 @@
-  @extends('public/layouts/container')
-  @section('containerpublic')
-      <div class="row">
-          <div class="col">
-              <div class="container mt-3">
+ @extends('public.layouts.containerTable')
+ @section('containerTable')
+     <div class="row">
+         <div class="col-md-12">
 
-                  <h3>Hasil</h3>
-                  @if (session('success'))
-                      <script>
-                          document.addEventListener('DOMContentLoaded', function() {
-                              Swal.fire({
-                                  title: 'Success!',
-                                  text: "'{{ session('success') }}'",
-                                  icon: 'success',
-                                  position: "top",
-                                  showConfirmButton: false,
-                                  timer: 1500
-                              });
-                          });
-                      </script>
-                  @endif
-              </div>
-              <!-- DataTales  -->
-              <div class="container">
-                  <div class="card shadow mb-4">
-                      <div class="card-header d-flex py-3 align-items-center w-100 justify-content-between">
-                          <h6 class="m-0 font-weight-bold text-secondary">Daftar pengaduan</h6>
-
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                      <tr>
-                                          <th>Nama terlapor</th>
-                                          <th>Judul Perkara</th>
-                                          <th>Deskripsi</th>
-                                          <th>hasil</th>
-                                          <th>Tanggal pelaporan</th>
-                                          <th>Rujukan</th>
-                                          <th>Status</th>
-                                          <th>user</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      @if (isset($dataHasil))
-                                          @foreach ($dataHasil as $data)
-                                              <tr>
-                                                  <td>{{ $data['nama_terlapor'] }}</td>
-                                                  <td>{{ $data['judul_perkara'] }}</td>
-                                                  <td>{{ $data['deskripsi'] }}</td>
-                                                  <td>{{ $data['hasil'] }}</td>
-                                                  <td>{{ $data['tanggal'] }}</td>
-                                                  <td>{{ $data['rujukan'] }}</td>
-                                                  <td>{{ $data['status'] }}</td>
-                                                  <td>{{ $data['id_user'] }}</td>
-                                              </tr>
-                                          @endforeach
-                                      @endif
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  @endsection
+             @if (session('success'))
+                 <script>
+                     document.addEventListener('DOMContentLoaded', function() {
+                         Swal.fire({
+                             title: 'Success!',
+                             text: "'{{ session('success') }}'",
+                             icon: 'success',
+                             position: "top",
+                             showConfirmButton: false,
+                             timer: 1500
+                         });
+                     });
+                 </script>
+             @endif
+             <div class="table-wrap">
+                 <table class="table table-responsive-xl">
+                     <thead>
+                         <tr class="">
+                             <th>Nama terlapor</th>
+                             <th>Judul Perkara</th>
+                             <th>hasil</th>
+                             <th>Status</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @if (isset($dataHasil))
+                             @foreach ($dataHasil as $data)
+                                 <tr alert" role="alert">
+                                     <td>{{ $data['nama_terlapor'] }}</td>
+                                     <td>{{ $data['judul_perkara'] }}</td>
+                                     <td>{{ $data['hasil'] }}</td>
+                                     <td><a href="{{ route('public-hasil-detail', ['id' => $data['id']]) }}"
+                                             class="btn btn-primary">Detail</a></td>
+                                     <td class="status"><span
+                                             class="{{ $data['status'] === 'Diproses' ? 'waiting' : 'active' }}">
+                                             {{ $data['status'] }}</span>
+                                     </td>
+                                 </tr>
+                             @endforeach
+                         @endif
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+     </div>
+ @endsection

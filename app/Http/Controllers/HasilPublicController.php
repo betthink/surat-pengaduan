@@ -17,4 +17,12 @@ class HasilPublicController extends Controller
             'title' => 'Hasil'
         ]);
     }
+    public function detail(int $id)
+    {
+        $dataHasil = ModelPengaduan::find($id);
+        if (!$dataHasil) {
+            return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+        }
+        dd($dataHasil);
+    }
 }

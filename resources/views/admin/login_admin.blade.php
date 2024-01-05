@@ -18,7 +18,7 @@
                           });
                       </script>
                   @endif
-                   @if (session('error'))
+                  @if (session('error'))
                       <script>
                           document.addEventListener('DOMContentLoaded', function() {
                               Swal.fire({
@@ -34,7 +34,8 @@
                   @endif
                   <div class="row justify-content-center">
                       <div class="col-md-6 text-center mb-5">
-                          <h2 class="heading-section">Selamat datang Admin</h2>
+                          <h2 class="heading-section">Selamat datang</h2>
+                          <h2 class="heading-section">Sihlan melakukan login</h2>
                       </div>
                       @error('username')
                           <div class="alert alert-danger">{{ $message }}</div>
