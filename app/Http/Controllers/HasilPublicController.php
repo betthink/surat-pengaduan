@@ -23,6 +23,9 @@ class HasilPublicController extends Controller
         if (!$dataHasil) {
             return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
         }
-        dd($dataHasil);
+        return view('public.detail_hasil', [
+            'title' => 'Halaman detail hasil',
+            'data' => $dataHasil
+        ]);
     }
 }

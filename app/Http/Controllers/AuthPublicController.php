@@ -13,6 +13,10 @@ class AuthPublicController extends Controller
     //
     public function show()
     {
+        if (Auth::guard('publicusers')->check()) {
+            // Jika sudah login, alihkan ke halaman beranda
+            return redirect()->route('Beranda');
+        }
         return view('public.login_public', ['title' => 'Halaman Login']);
     }
     public function login(Request $request)
@@ -64,7 +68,7 @@ class AuthPublicController extends Controller
                 Rule::unique('masyarakat', 'nik'),
             ],
         ]);
-     
+
         // Buat pengguna baru
         $user = new ModelMasyarakat();
         $user->nama = $request->nama;
