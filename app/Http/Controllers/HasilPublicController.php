@@ -13,7 +13,7 @@ class HasilPublicController extends Controller
     {
         $hasil = ModelPengaduan::all()->toArray();
         return view('public.hasil', [
-            'dataHasil' => $hasil,
+            'dataHasil' => array_reverse($hasil),
             'title' => 'Hasil'
         ]);
     }
