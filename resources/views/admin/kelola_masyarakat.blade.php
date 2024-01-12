@@ -54,7 +54,7 @@
                                                  <td>{{ $data['tempat_lahir'] }}</td>
                                                  <td class="d-md-flex ">
                                                      <a href="{{ route('edit-masyarakat', ['id' => $data['id']]) }}"
-                                                         class="btn btn-outline-primary w-50 mx-2">
+                                                         class="btn btn-primary w-50 mx-2">
                                                          <i class="fa-solid fa-pen"></i>
                                                      </a>
 
@@ -63,7 +63,7 @@
                                                          method="POST" class="d-inline">
                                                          @csrf
                                                          @method('DELETE')
-                                                         <button type="submit" class="btn btn-outline-danger w-100">
+                                                         <button type="submit" class="btn btn-danger w-100">
                                                              <i class="fa-regular fa-trash-can"></i>
                                                          </button>
                                                      </form>

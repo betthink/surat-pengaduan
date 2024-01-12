@@ -13,7 +13,9 @@
 
 <body>
    @include('public.layouts.navbar_public')
+   <div class="container">
     @yield('containerpublic')
+ </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"

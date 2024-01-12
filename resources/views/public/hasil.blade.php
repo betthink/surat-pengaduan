@@ -1,7 +1,7 @@
  @extends('public.layouts.containerTable')
  @section('containerTable')
      <div class="row">
-         <div class="col-md-12">
+         <div class="col">
 
              @if (session('success'))
                  <script>

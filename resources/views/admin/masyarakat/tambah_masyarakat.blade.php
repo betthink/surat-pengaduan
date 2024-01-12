@@ -25,7 +25,7 @@
                          @enderror
                      </div>
                      <div class="mb-3 col-md-6">
-                         <label for="tempat_lahir" class="form-label">tempat_lahir</label>
+                         <label for="tempat_lahir" class="form-label">Tempat lahir</label>
                          <input value="{{ old('tempat_lahir') }}" name="tempat_lahir" type="text" class="form-control"
                              id="tempat_lahir">
                          @error('tempat_lahir')
