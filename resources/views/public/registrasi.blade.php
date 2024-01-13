@@ -78,6 +78,14 @@
                                    @enderror
                                </div>
                                <div class="mb-3 input-group-sm col-md-12">
+                                   <label for="nomor_telp" class="form-label">Nomor Telpon</label>
+                                   <input value="{{ old('nomor_telp') }}" name="nomor_telp" type="number" class="form-control"
+                                       id="nomor_telp">
+                                   @error('nik')
+                                       <div class="alert alert-danger">{{ $message }}</div>
+                                   @enderror
+                               </div>
+                               <div class="mb-3 input-group-sm col-md-12">
                                    <button type="submit" class="btn btn-outline-primary rounded col-md-12">Daftar</button>
                                </div>
                            </form>

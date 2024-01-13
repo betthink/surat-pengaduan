@@ -94,6 +94,20 @@
                                       <input value="{{ old('nik') }}" name="nik" type="text" class="form-control"
                                           placeholder="nik" required>
                                   </div>
+                                  <div class="form-group col-md-6 col">
+                                      <input value="{{ old('nomor_telp') }}" name="nomor_telp" type="text"
+                                          class="form-control" placeholder="Nomor Telepon" required>
+                                  </div>
+                                  <div class="form-group col-md-6 col">
+                                      <select name="jenis_kelamin" class="form-select" id="jenis_kelamin">
+                                          <option selected>Pilih jenis kelamin</option>
+                                          <option value="Laki-laki">Laki-laki
+                                          </option>
+                                          <option value="Perempuan">Perempuan</option>
+                                      </select>
+                                      {{-- <input value="{{ old('nomor_telp') }}" name="nomor_telp" type="text" class="form-control"
+                                          placeholder="Nomor Telepon" required> --}}
+                                  </div>
                                   <div class="invisible form-group col-md-6 col">
                                       <input value="public" name="status" type="text" class="form-control" required>
                                   </div>

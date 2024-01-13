@@ -43,7 +43,7 @@ Route::get('/logout', [AuthPublicController::class, 'logout'])->name('public-log
 
 // admin---
 // login 
-Route::get('/admin/login', [AuthAdminController::class, 'show'])->name('admin-login');
+Route::get('/login/admin', [AuthAdminController::class, 'show'])->name('admin-login');
 Route::get('/admin/registrasi', [AuthAdminController::class, 'register'])->name('admin-register');
 Route::post('/admin/registrasi', [AuthAdminController::class, 'register'])->name('admin-register');
 Route::get('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin-logout');
@@ -56,8 +56,7 @@ Route::group(['middleware' => 'auth.public'], function () {
     Route::get('/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
     Route::post('/pengaduan', [PengaduanPublicController::class, 'submit'])->name('public-pengaduan');
 });
-Route::get('/admin/login', [AuthAdminController::class, 'show']);
-Route::post('/admin/login', [AuthAdminController::class, 'login'])->name('login-admin');
+Route::post('/login/admin', [AuthAdminController::class, 'login'])->name('login-admin');
 // Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
 
 // start  midleware admin

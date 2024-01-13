@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ModelPengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use PhpOffice\PhpWord\TemplateProcessor;
 
@@ -43,26 +44,39 @@ class PengaduanController extends Controller
     public function detail(int $id)
     {
         $pengaduan = ModelPengaduan::findOrFail($id);
+  
         return view('admin.pengaduan.detail_pengaduan', ['data' => $pengaduan]);
     }
     public function unduh(int $id)
     {
         // Temukan pengaduan berdasarkan ID
-        $pengaduan = ModelPengaduan::findOrFail($id);
+
+        $dataGabung = DB::table('laporan')
+        ->join('masyarakat', 'laporan.id_user', '=', 'masyarakat.id')
+        ->select('laporan.*', 'masyarakat.*') // Mengambil semua kolom dari tabel masyarakat
+        ->where('laporan.id', $id) // Menambahkan kondisi where untuk ID pengaduan
+            ->first();
+        // $pengaduan = ModelPengaduan::with('suratpengaduan')->findOrFail($id);
+        if (!$dataGabung) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
         // Tentukan path ke template Word
-        $templatePath = public_path('word-template/index.docx');
+        $templatePath = public_path('word-template/templete.docx');
 
         // Inisialisasi TemplateProcessor
         $templateProcessor = new TemplateProcessor($templatePath);
-        $templateProcessor->setValue('nama_terlapor', $pengaduan->nama_terlapor);
-        $templateProcessor->setValue('judul_perkara', $pengaduan->judul_perkara);
-        $templateProcessor->setValue('deskripsi', $pengaduan->deskripsi);
-        $templateProcessor->setValue('status', $pengaduan->status);
-        $templateProcessor->setValue('hasil', $pengaduan->hasil);
-        $templateProcessor->setValue('tanggal', $pengaduan->tanggal);
-        $templateProcessor->setValue('rujukan', $pengaduan->rujukan);
+        $templateProcessor->setValue('nama', $dataGabung->nama);
+        $templateProcessor->setValue('nik', $dataGabung->nik);
+        $templateProcessor->setValue('alamat', $dataGabung->alamat);
+        $templateProcessor->setValue('nama_terlapor', $dataGabung->nama_terlapor);
+        $templateProcessor->setValue('perkara', $dataGabung->judul_perkara);
+        $templateProcessor->setValue('deskripsi', $dataGabung->deskripsi);
+        $templateProcessor->setValue('status', $dataGabung->status);
+        $templateProcessor->setValue('hasil', $dataGabung->hasil);
+        $templateProcessor->setValue('tanggal', $dataGabung->tanggal);
+        $templateProcessor->setValue('rujukan', $dataGabung->rujukan);
         // $outputPath = storage_path('app/public/word-template/output.docx');
-        $filename = $pengaduan->judul_perkara;
+        $filename = $dataGabung->judul_perkara;
         $templateProcessor->saveAs($filename . '.docx');
         // Buat respons unduhan untuk pengguna
         return response()->download($filename . '.docx')->deleteFileAfterSend(true);

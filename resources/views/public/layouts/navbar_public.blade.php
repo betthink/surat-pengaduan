@@ -1,16 +1,16 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-nav w-100">
     <div class="container py-1 d-flex w-100 justify-content-between">
-        <a class="navbar-brand" href="#">Mantap</a>
+        <a class="navbar-brand" href="">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between w-100 " id="navbarNav " >
             <ul class="navbar-nav ">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link  {{ $title === 'Beranda' ? 'active' : '' }}" aria-current="page"
                         href="{{ route('Beranda') }}">Beranda</a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Pengaduan' ? 'active' : '' }}"

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('username', 100);
             $table->string('password', 100);
             $table->string('alamat', 100);
+            $table->string('nomor_telp', 20);
+            $table->string('jenis_kelamin', 20);
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir');
             $table->string('nik', 20)->unique();
@@ -30,5 +32,15 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::create('masyarakat', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama', 100);
+            $table->string('username', 100);
+            $table->string('password', 100);
+            $table->string('alamat', 100);
+            $table->date('tanggal_lahir');
+            $table->string('tempat_lahir');
+            $table->string('nik', 20)->unique();
+        });
     }
 };

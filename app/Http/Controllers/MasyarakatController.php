@@ -32,6 +32,8 @@ class MasyarakatController extends Controller
             'alamat' => 'required|string|max:255',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required',
+            'nomor_telp' => 'required',
+            'jenis_kelamin' => 'required',
             'username' => [
                 'required',
                 'string',
@@ -42,15 +44,17 @@ class MasyarakatController extends Controller
             'nik' => [
                 'required',
                 Rule::unique('masyarakat', 'nik'),
+                'numeric'
             ],
         ]);
-
         // Buat pengguna baru
         $user = new ModelMasyarakat();
         $user->nama = $request->nama;
         $user->alamat = $request->alamat;
         $user->tempat_lahir = $request->tempat_lahir;
         $user->nik = $request->nik;
+        $user->nomor_telp = $request->nomor_telp;
+        $user->jenis_kelamin = $request->jenis_kelamin;
         $user->tanggal_lahir = $request->tanggal_lahir;
         $user->username = $request->username;
         $user->password = Hash::make($request->password);
@@ -119,7 +123,7 @@ class MasyarakatController extends Controller
         $user->username = $validatedData['username'];
         $result = $user->save();
         if ($result) {
-            return redirect('/kelola-masyarakat');
+            return redirect('/kelola-masyarakat')->with('success', 'Berhasil mengubah data penduduk');
         }
     }
 }

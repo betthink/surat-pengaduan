@@ -49,6 +49,23 @@
                              <div class="alert alert-danger">{{ $message }}</div>
                          @enderror
                      </div>
+                     <div class=" mb-3 col-md-6">
+                          <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                         <select name="jenis_kelamin" class="form-select" id="jenis_kelamin">
+                            <option selected>Pilih jenis kelamin</option>
+                             <option value="Laki-laki">Laki-laki
+                             </option>
+                             <option value="Perempuan">Perempuan</option>
+                         </select>
+                     </div>
+                     <div class="mb-3 col-md-6">
+                         <label for="nomor_telp" class="form-label">Nomor telpon</label>
+                         <input value="{{ old('nomor_telp') }}" name="nomor_telp" type="text" class="form-control"
+                             id="nomor_telp">
+                         @error('nomor_telp')
+                             <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
+                     </div>
                      <div class="mb-3 col-md-6">
                          <label for="username" class="form-label">username</label>
                          <input value="{{ old('username') }}" name="username" type="text" class="form-control"

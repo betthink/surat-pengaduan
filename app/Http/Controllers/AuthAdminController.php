@@ -38,7 +38,7 @@ class AuthAdminController extends Controller
     public function logout()
     {
         Auth::guard('adminusers')->logout();
-        return redirect('/admin/login')->with('success', 'Log out Admin berhasil!');
+        return redirect()->route('admin-login')->with('success', 'Log out Admin berhasil!');
     }
     public function register(Request $request)
     {
