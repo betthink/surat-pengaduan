@@ -33,10 +33,11 @@
                                          <th>Nama terlapor</th>
                                          <th>Judul perkara</th>
                                          <th>Deskripsi</th>
-                                         <th>Status</th>
+
                                          <th>Hasil</th>
                                          <th>Tanggal</th>
                                          <th>Rujukan</th>
+                                         <th>Status</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>
@@ -49,10 +50,10 @@
                                              <td>{{ $item['hasil'] }}</td>
                                              <td>{{ $item['tanggal'] }}</td>
                                              <td>{{ $item['rujukan'] }}</td>
-                                                <td
+                                             <td
                                                  class="{{ $item['status'] === 'Diproses' ? 'text-success' : 'text-danger' }}">
                                                  {{ $item['status'] }}</td>
-                                             <td class="d-flex my-1">
+                                             <td class="d-flex m-2">
                                                  <button data-toggle="modal" data-target="#detailModal{{ $item['id'] }}"
                                                      class="btn btn-primary">Validasi</button>
                                                  <a href="{{ route('kelola.pengaduan', ['id' => $item['id']]) }}"
@@ -95,7 +96,7 @@
                                                              </div>
 
                                                              <div class="my-3 ">
-                                                                <label for="rujukan" class="form-label">Rujukan</label>
+                                                                 <label for="rujukan" class="form-label">Rujukan</label>
                                                                  <input value="{{ $item['rujukan'] }}" name="rujukan"
                                                                      type="text" class="form-control" id="rujukan">
                                                              </div>
@@ -114,7 +115,7 @@
                                                                          {{ $item['hasil'] == 'Perdata' ? 'selected' : '' }}
                                                                          value="Perdata">Perdata</option>
                                                                      <option
-                                                                         {{ $item['hasil'] == 'belum ada hasil' ? 'selected' : '' }}
+                                                                         {{ $item['hasil'] == 'tidak terdeteksi' ? 'selected' : '' }}
                                                                          value="Pidana">Tidak Terdeteksi
                                                                      </option>
                                                                  </select>

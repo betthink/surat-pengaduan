@@ -22,6 +22,6 @@ class AuthAdminMiddleware
             return $next($request);
         }
         // Jika tidak, redirect ke halaman login publik
-        return redirect('/admin/login')->with('error', 'Anda harus sebagai admin login untuk mengakses halaman ini.');
+        return redirect('/login/admin')->with('error', 'Anda harus sebagai admin login untuk mengakses halaman ini.');
     }
 }

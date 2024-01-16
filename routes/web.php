@@ -68,7 +68,8 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/kelola-pengaduan', [PengaduanController::class, 'show'])->name('kelola-pengaduan');
     Route::post('/kelola-pengaduan', [PengaduanController::class, 'update'])->name('kelola-pengaduan');
     Route::get('/kelola-pengaduan/{id}', [PengaduanController::class, 'detail'])->name('kelola.pengaduan');
-    Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduh'])->name('detail.pengaduan');
+    // Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduh'])->name('detail.pengaduan');
+    Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduhPdf'])->name('detail.pengaduan');
     // masyarakat
     Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show'])->name('kelola-masyarakat');
     Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');

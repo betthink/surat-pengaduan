@@ -32,7 +32,7 @@ class AuthPublicController extends Controller
         if (Auth::guard('publicusers')->attempt($credentials)) {
             // Autentikasi berhasil
 
-            return redirect()->route('Beranda')->with('success', 'Login berhasil!');
+            return redirect('/hasil')->with('success', 'Login berhasil!');
         } else {
             // Autentikasi gagal
             return redirect()->back()->with('error', 'Username atau password salah');

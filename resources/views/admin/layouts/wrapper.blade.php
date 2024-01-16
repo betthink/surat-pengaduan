@@ -78,11 +78,11 @@
                     <i class="fa-solid fa-key"></i>
                     <span>Kelola Kata kunci</span></a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kelola Admin?</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

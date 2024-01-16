@@ -46,9 +46,9 @@
                                              <td>{{ $data['kata'] }}</td>
                                              <td>{{ $data['kategori'] }}</td>
                                              <td>{{ $data['keterangan'] }}</td>
-                                             <td class="d-flex w-100  justify-content-center ">
+                                             <td class="d-flex m-2  justify-content-center ">
                                                  <a href="{{ route('edit.kata.kunci', ['id' => $data['id']]) }}"
-                                                     class="btn btn-primary w-50 mx-2 ">
+                                                     class="btn btn-primary  mx-2 ">
                                                      <i class="fa-solid fa-pen"></i>
                                                  </a>
 
@@ -57,7 +57,7 @@
                                                      method="POST" class="d-inline">
                                                      @csrf
                                                      @method('DELETE')
-                                                     <button type="submit" class="btn btn-danger w-50">
+                                                     <button type="submit" class="btn btn-success ">
                                                          <i class="fa-regular fa-trash-can"></i>
                                                      </button>
                                                  </form>
