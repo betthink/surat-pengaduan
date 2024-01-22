@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthAdminController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthPublicController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;

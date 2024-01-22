@@ -5,19 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\ModelMasyarakat;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class MasyarakatController extends Controller
 {
+    
 
     function show(): View
     {
+        $user = Auth::guard('adminusers')->user();
         $users = ModelMasyarakat::all()->toArray();
         return view('admin.kelola_masyarakat', [
             'username' => 'user01',
-            'datauser' => $users
+            'datauser' => $users,
+            'user' => $user
         ]);
     }
     public function addMasyarakat(Request $request)

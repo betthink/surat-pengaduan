@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class AuthAdminController extends Controller
 {
     //
-    public function show(): View
+    public function show()
     {
-        return view('admin.login_admin');
+        if (Auth::guard('adminusers')->check()) {
+            // Jika sudah login, alihkan ke halaman beranda
+            return redirect()->route('dashboard');
+        }
+        return view('admin.login_admin', ['title'=> 'Halaman login admin']);
     }
     public function login(Request $request)
     {

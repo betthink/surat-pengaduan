@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ModelKatakunci;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class KatakunciController extends Controller
@@ -12,9 +13,11 @@ class KatakunciController extends Controller
 
     function show(): View
     {
+        $user = Auth::guard('adminusers')->user();
         $data = ModelKatakunci::all()->toArray();
         return view('admin.katakunci.kelola_kata_kunci', [
-            'dataKatakunci' => $data
+            'dataKatakunci' => $data,
+            'user' => $user
         ]);
     }
     public function addKatakunci(Request $request)

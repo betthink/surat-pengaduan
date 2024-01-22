@@ -1,11 +1,9 @@
   @extends('public/layouts/container')
   @section('containerpublic')
-      <div class="row">
-          <div class="col">
-
-
+      <div class="row d-flex justify-content-center mt-5">
+          <div class="col col-md-8">
               <div class="container shadow p-4 ">
-                  <h3 class="my-3">Sihlakan isi kolom pengaduan</h3>
+                  <h3 class="my-3">Isi data pengaduan</h3>
                   <form class="row" action="" method="POST">
                       @csrf <!-- Tambahkan CSRF token untuk keamanan -->
                       <div class="mb-3 col-md-6 ">
@@ -30,9 +28,37 @@
                           @enderror
                       </div>
 
-                      <button type="submit" class="btn btn-secondary col-md-12">Masukkan</button>
+                      <button type="submit" class="btn bg-primary text-light col-md-12">Masukkan</button>
                   </form>
               </div>
           </div>
+              @if (session('success'))
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      Swal.fire({
+                          title: 'Success!',
+                          text: "'{{ session('success') }}'",
+                          icon: 'success',
+                          position: "top",
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                  });
+              </script>
+          @endif
+          @if (session('error'))
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      Swal.fire({
+                          title: 'Gagal login!',
+                          text: "'{{ session('error') }}'",
+                          icon: 'error',
+                          position: "top",
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                  });
+              </script>
+          @endif
       </div>
   @endsection

@@ -15,9 +15,10 @@ class AuthPublicController extends Controller
     {
         if (Auth::guard('publicusers')->check()) {
             // Jika sudah login, alihkan ke halaman beranda
-            return redirect()->route('Beranda');
+            return redirect()->route('public-pengaduan');
         }
-        return view('public.login_public', ['title' => 'Halaman Login']);
+        return view('auth.login_public', ['title' => 'Halaman Login']);
+        // return view('public.login_public', ['title' => 'Halaman Login']);
     }
     public function login(Request $request)
     {
@@ -31,8 +32,7 @@ class AuthPublicController extends Controller
         ];
         if (Auth::guard('publicusers')->attempt($credentials)) {
             // Autentikasi berhasil
-
-            return redirect('/hasil')->with('success', 'Login berhasil!');
+            return redirect()->route('public-pengaduan')->with('success', 'Login berhasil!');
         } else {
             // Autentikasi gagal
             return redirect()->back()->with('error', 'Username atau password salah');
@@ -48,37 +48,41 @@ class AuthPublicController extends Controller
     {
         if ($request->isMethod('get')) {
 
-            return view('public.registrasi_public');
+            return view('public.registrasi_public', ['title' => 'Halaman register']);
         }
 
         $validatedData = $request->validate([
             'nama' => 'required|string',
-            'alamat' => 'required|string',
-            'tempat_lahir' => 'required|string',
-            'tanggal_lahir' => 'required',
             'username' => [
                 'required',
                 'string',
-                'max:255',
+                'numeric',
+                'max:17',
                 Rule::unique('masyarakat', 'username'),
             ],
             'password' => 'required|min:6',
+            'alamat' => 'required|string',
+            'nomor_telp' => 'required|string',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
+            'tempat_lahir' => 'required|string',
             'nik' => [
                 'required',
                 Rule::unique('masyarakat', 'nik'),
             ],
         ]);
-
         // Buat pengguna baru
         $user = new ModelMasyarakat();
         $user->nama = $request->nama;
         $user->username = $request->username;
+        $user->password = Hash::make($request->password);
         $user->alamat = $request->alamat;
+        $user->nomor_telp = $request->nomor_telp;
+        $user->jenis_kelamin = $request->jenis_kelamin;
         $user->tempat_lahir = $request->tempat_lahir;
         $user->nik = $request->nik;
         $user->tanggal_lahir = $request->tanggal_lahir;
         $isPublic = $request->status === 'public';
-        $user->password = Hash::make($request->password);
         $result = $user->save();
         if ($result && $isPublic) {
             return redirect()->route('public-login')->with('success', 'Berhasil registrasi akun');

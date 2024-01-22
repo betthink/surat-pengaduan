@@ -30,8 +30,9 @@
 }
 
 .bg-main {
-   background: linear-gradient(to bottom, #1cc88a, #6f42c1);
+   background: linear-gradient(to bottom, #1cc88a, #38d39f);
 }
-.bg-nav {
-   background: linear-gradient(to right, #4e73df, #6f42c1);
+.bg-default {
+   /* background: linear-gradient(to right, #4e73df, #6f42c1); */
+   background: #38d39f;
 }

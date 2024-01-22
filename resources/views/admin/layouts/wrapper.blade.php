@@ -31,13 +31,13 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-main sidebar sidebar-dark accordion position-sticky top-0" id="accordionSidebar">
+        <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion position-sticky top-0" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
-                <div class="sidebar-brand-text mx-3"> Mantap </div>
+                <div class="sidebar-brand-text mx-3"> Pengaduan </div>
             </a>
 
             <!-- Divider -->

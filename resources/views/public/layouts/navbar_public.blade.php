@@ -1,16 +1,13 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-nav w-100">
+<nav class="navbar navbar-dark navbar-expand-lg bg-primary w-100">
     <div class="container py-1 d-flex w-100 justify-content-between">
-        <a class="navbar-brand" href="">Logo</a>
+        <a class="navbar-brand" href=""><i class="fa-solid fa-book"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between w-100 " id="navbarNav " >
             <ul class="navbar-nav ">
-                {{-- <li class="nav-item">
-                    <a class="nav-link  {{ $title === 'Beranda' ? 'active' : '' }}" aria-current="page"
-                        href="{{ route('Beranda') }}">Beranda</a>
-                </li> --}}
+       
 
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Pengaduan' ? 'active' : '' }}"
@@ -37,7 +34,6 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
 
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('public-logout') }}">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout

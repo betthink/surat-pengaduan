@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ModelKatakunci;
 use App\Models\ModelPengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,9 @@ class PengaduanPublicController extends Controller
     {
         $user = Auth::guard('publicusers')->user();
         if ($request->isMethod('post')) {
-        $kalimat = $request->input('deskripsi');
+            $kalimat = $request->input('deskripsi');
             // Aturan pengelompokan sederhana berdasarkan kata kunci
-            $kategori = $this->getKategori($kalimat); 
+            $kategori = $this->getKategori($kalimat);
             $validatedData = $request->validate([
 
                 'nama_terlapor' => 'required|string',
@@ -45,36 +46,22 @@ class PengaduanPublicController extends Controller
             return  redirect()->route('public-hasil')->with('success', 'Berhasil membuat laporan');
         }
     }
- 
+
+
     private function getKategori($kalimat)
     {
         $kategori = 'tidak terdeteksi'; // Kategori default jika tidak cocok dengan aturan
+        $list_kategori = ModelKatakunci::all()->toArray();
 
-        // Aturan pengelompokan
-        $aturanKategori = [
-            'Perdata' => ['Pelanggaran Kontrak', 'Gugatan Ganti Rugi', 'Perceraian', 'Waris', 'Hutang Piutang'],
-            'Pidana' => ['Pencurian', 'Pembunuhan', 'Pemalsuan Dokumen', 'Penggelapan', 'Narkotika'],
-            // ... tambahkan aturan kategori lainnya
-        ];
+        foreach ($list_kategori as $kategoriModel) {
+            $kata = $kategoriModel['kata'];
 
-        // Iterasi aturan kategori
-        foreach ($aturanKategori as $namaKategori => $kataKunci) {
-            $kataCocok = false;
-
-            foreach ($kataKunci as $kata) {
-                if (stripos($kalimat, $kata) !== false) {
-                    $kataCocok = true;
-                    break; // Keluar dari perulangan jika menemukan satu kata cocok
-                }
-            }
-
-            // Jika ada setidaknya satu kata cocok, set kategori dan keluar dari perulangan
-            if ($kataCocok) {
-                $kategori = $namaKategori;
-                break;
+            if (stripos($kalimat, $kata) !== false) {
+                $kategori = $kategoriModel['kategori']; // Mengambil nama kategori dari model
+                break; // Keluar dari perulangan jika menemukan satu kata cocok
             }
         }
-
         return $kategori;
     }
+
 }
