@@ -56,7 +56,7 @@ class AuthPublicController extends Controller
             'username' => [
                 'required',
                 'string',
-                'numeric',
+
                 'max:17',
                 Rule::unique('masyarakat', 'username'),
             ],
@@ -68,6 +68,7 @@ class AuthPublicController extends Controller
             'tempat_lahir' => 'required|string',
             'nik' => [
                 'required',
+                'numeric',
                 Rule::unique('masyarakat', 'nik'),
             ],
         ]);
@@ -88,6 +89,39 @@ class AuthPublicController extends Controller
             return redirect()->route('public-login')->with('success', 'Berhasil registrasi akun');
         } elseif ($result) {
             return redirect('/kelola-masyarakat');
+        }
+    }
+
+    public function submitUpdate(Request $request)
+    {
+        $id = $request->validate(['id' => 'required'])['id'];
+        $validatedData = $request->validate([
+            'username' =>            'required',
+            'nama' => 'required',
+            'id' => 'required',
+            'nik' =>            'required',
+            'alamat' => 'required',
+            'nomor_telp' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+        ]);
+        $user = ModelMasyarakat::find($id);
+        if (!$user) {
+            return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+        }
+        // Validasi input
+        $user->nama = $validatedData['nama'];
+        $user->alamat = $validatedData['alamat'];
+        $user->tempat_lahir = $validatedData['tempat_lahir'];
+        $user->nik = $validatedData['nik'];
+        $user->tanggal_lahir = $request->tanggal_lahir;
+        $user->username = $validatedData['username'];
+        $user->nomor_telp = $validatedData['nomor_telp'];
+        $user->jenis_kelamin = $validatedData['jenis_kelamin'];
+        $result = $user->save();
+        if ($result) {
+            return redirect()->back()->with('success', 'Berhasil mengubah data profile');
         }
     }
 }

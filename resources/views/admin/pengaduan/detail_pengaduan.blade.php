@@ -1,16 +1,12 @@
-@extends('admin/layouts/wrapper')
-
-
-@section('content')
-    <!-- Topbar -->
-    @include('admin.layouts.navbar')
+  @extends('admin.layouts.container')
+  @section('container')
     <!-- End of Topbar -->
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-datas-center j mb-2 gap-5">
             <h1 class="h3 mb-0 text-gray-800">Detail pengaduan</h1>
-            <a href="{{ route('detail.pengaduan', ['id' => $data['id']]) }}" class="btn btn-success">Unduh surat</a>
+            <a href="{{ route('unduh-pdf', ['id' => $data['id']]) }}" class="btn btn-success">Unduh surat</a>
         </div>
         <!-- Content Row -->
         <div class="row">

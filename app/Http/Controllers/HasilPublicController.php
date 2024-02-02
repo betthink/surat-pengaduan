@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ModelPengaduan;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HasilPublicController extends Controller
 {
@@ -12,9 +13,12 @@ class HasilPublicController extends Controller
     public function show(): View
     {
         $hasil = ModelPengaduan::all()->toArray();
+        $user = Auth::guard('publicusers')->user();
+
         return view('public.hasil', [
             'dataHasil' => array_reverse($hasil),
-            'title' => 'Hasil'
+            'title' => 'Hasil',
+            'user' => $user
         ]);
     }
     public function detail(int $id)

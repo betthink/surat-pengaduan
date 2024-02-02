@@ -33,7 +33,7 @@
                           </form>
                           <div class="mt-5 d-flex justify-content-between">
 
-                              <a class=" text-primary" href="{{ route('public-register') }}" style="color: #fff">Buat
+                              <a class=" text-primary" href="{{ route('admin-register') }}" style="color: #fff">Buat
                                   akun</a>
                               <a class=" text-primary" href="{{ route('public-login') }}" style="color: #fff">Log in
                                   warga</a>

@@ -15,7 +15,12 @@ class KatakunciController extends Controller
     {
         $user = Auth::guard('adminusers')->user();
         $data = ModelKatakunci::all()->toArray();
-        return view('admin.katakunci.kelola_kata_kunci', [
+        // return view('admin.katakunci.kelola_kata_kunci', [
+        //     'dataKatakunci' => $data,
+        //     'user' => $user
+        // ]);
+        return view('admin.katakunci.index', [
+            'title' => 'Halaman kelola kata kunci',
             'dataKatakunci' => $data,
             'user' => $user
         ]);
@@ -24,7 +29,7 @@ class KatakunciController extends Controller
     {
         if ($request->isMethod('get')) {
 
-            return view('admin.katakunci.Tambah_Kata_kunci');
+            return view('admin.katakunci.Tambah_Kata_kunci', ['title' => 'Tambah kata kunci']);
         }
 
         $validatedData = $request->validate([
@@ -70,7 +75,7 @@ class KatakunciController extends Controller
 
             return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
         }
-        return view('admin.katakunci.edit_kata_kunci', ['katakunci' => $katakunci]);
+        return view('admin.katakunci.edit_kata_kunci', ['katakunci' => $katakunci , 'title'=> 'Edit kata kunci']);
     }
 
     public function updateKatakunciPost(Request $request, int $id)

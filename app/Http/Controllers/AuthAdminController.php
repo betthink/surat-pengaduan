@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ModelAuthAdmin;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +16,7 @@ class AuthAdminController extends Controller
             // Jika sudah login, alihkan ke halaman beranda
             return redirect()->route('dashboard');
         }
-        return view('admin.login_admin', ['title'=> 'Halaman login admin']);
+        return view('admin.login_admin', ['title' => 'Halaman login admin']);
     }
     public function login(Request $request)
     {
@@ -38,7 +37,6 @@ class AuthAdminController extends Controller
             return redirect()->back()->with('error', 'Username atau password salah');
         }
     }
-
     public function logout()
     {
         Auth::guard('adminusers')->logout();
@@ -46,9 +44,8 @@ class AuthAdminController extends Controller
     }
     public function register(Request $request)
     {
-
         if ($request->isMethod('get')) {
-            return view('admin.registerAdmin');
+            return view('admin.registerAdmin', ['title' => 'Halaman Registrasi Admin']);
         } elseif ($request->isMethod('post')) {
             $validatedData = $request->validate([
                 'nama' => 'required|string|max:255',
@@ -60,7 +57,6 @@ class AuthAdminController extends Controller
                 ],
                 'password' => 'required|min:6',
             ]);
-
             // Buat user admin baru
             $user = new ModelAuthAdmin();
             $user->nama = $request->nama;
@@ -68,11 +64,10 @@ class AuthAdminController extends Controller
             $user->password = Hash::make($request->password);
             $user->level = 'admin';
             $user->status = 'Off';
-
             // Simpan pengguna ke dalam database
             $result = $user->save();
             if ($result) {
-                return redirect('/login/admin')->with('success', 'user account berhasil dibuat!');
+                return redirect()->route('admin-login')->with('success', 'Admin account berhasil dibuat!');
             } else {
                 return redirect()->back();
             }

@@ -117,7 +117,34 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+  @if (session('success'))
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: "'{{ session('success') }}'",
+                                icon: 'success',
+                                position: "top",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        });
+                    </script>
+                @endif
+                @if (session('error'))
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            Swal.fire({
+                                title: 'Gagal login!',
+                                text: "'{{ session('error') }}'",
+                                icon: 'error',
+                                position: "top",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        });
+                    </script>
+                @endif
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

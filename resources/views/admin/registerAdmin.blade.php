@@ -1,70 +1,91 @@
-  @extends('container.wrapperLogin')
-  @section('wrapperLogin')
-      <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
-          <section class="ftco-section">
-              <div class="container">
-                  @if (session('success'))
-                      <div class="alert alert-success">
-                          {{ session('success') }}
-                      </div>
-                  @endif
-                  @if (session('error'))
-                      <div class="alert alert-danger">
-                          {{ session('error') }}
-                      </div>
-                  @endif
+  @extends('auth.layouts.wrapper_auth')
+  @section('wrapper_auth')
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 order-md-2">
+                  <img src="{{ asset('login-assets/images/undraw_file_sync_ot38.svg') }}" alt="Image" class="img-fluid">
+              </div>
+              <div class="col-md-6 contents">
                   <div class="row justify-content-center">
-                      <div class="col-md-6 text-center mb-5">
-                          <h2 class="heading-section">Selamat datang Admin</h2>
-                      </div>
+                      <div class="col-md-8">
+                          <div class="mb-4">
+                              <h3><strong>Registrasi admin</strong></h3>
+                              <p class="mb-4">Untuk admin yang belum terdaftar sihlakan registrasi</p>
+                          </div>
+                          <form action="" method="POST">
+                              @csrf
+                              <div class="form-group first">
+                                  <label for="nama">nama</label>
+                                  <input value="{{ old('nama') }}" name="nama" type="text" class="form-control"
+                                      id="nama" required>
+                              </div>
+                              <div class="form-group first">
+                                  <label for="username">Username</label>
+                                  <input value="{{ old('username') }}" name="username" type="text" class="form-control"
+                                      id="username" required>
+                              </div>
+                              <div class="form-group first">
+                                  <label for="password">Password</label>
+                                  <input value="{{ old('password') }}" name="password" type="text" class="form-control"
+                                      id="password" required>
 
-                  </div>
-                  @error('username')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
-                  @error('password')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
-                  <div class="row justify-content-center">
-                      <div class="col-md-6 col-lg-4">
-                          <div class="login-wrap p-0">
-                              <form action="{{ route('admin-register') }}" method="POST" class="signin-form">
-                                  @csrf
-                                  <div class="form-group">
-                                      <input name="nama" type="text" class="form-control" placeholder="nama" required>
-
-                                  </div>
-                                  <div class="form-group">
-                                      <input name="username" type="text" class="form-control" placeholder="Username"
-                                          required>
-
-                                  </div>
-                                  <div class="form-group">
-                                      <input name="password" id="password-field" type="password" class="form-control"
-                                          placeholder="Password" required>
-                                      <span toggle="#password-field"
-                                          class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                  </div>
-                                  <div class="form-group">
-                                      <button type="submit"
-                                          class="form-control btn btn-primary submit px-3">Registrasi</button>
-                                  </div>
-                                  <div class="form-group d-md-flex">
-                                      <div class="w-50">
-                                          <span>Sudah punya akun?</span>
-
-                                      </div>
-                                      <div class="w-50 text-md-right">
-
-                                          <a class=" text-primary" href="{{ route('admin-login') }}"
-                                              style="color: #fff">Login</a>
-                                      </div>
-                                  </div>
-                              </form>
-
+                              </div>
+                           
+                              <button type="submit" class="btn text-white btn-block btn-primary"> Log in</button>
+                          </form>
+                          <div class="mt-5">
+                              <a class=" text-primary" href="{{ route('admin-login') }}" style="color: #fff">Log in Admin</a>
                           </div>
                       </div>
                   </div>
+
               </div>
-          </section>
-      @endsection
+
+          </div>
+          @if (session('success'))
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      Swal.fire({
+                          title: 'Success!',
+                          text: "'{{ session('success') }}'",
+                          icon: 'success',
+                          position: "top",
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                  });
+              </script>
+          @endif
+
+          @if ($errors->any())
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      Swal.fire({
+                          title: 'Error!',
+                          text: "@foreach ($errors->all() as $error) {{ $error }} @endforeach",
+                          icon: 'error',
+                          position: "top",
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                  });
+              </script>
+          @endif
+
+
+          @if (session('error'))
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      Swal.fire({
+                          title: 'Gagal login!',
+                          text: "'{{ session('error') }}'",
+                          icon: 'error',
+                          position: "top",
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                  });
+              </script>
+          @endif
+      </div>
+  @endsection

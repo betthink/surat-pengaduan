@@ -17,6 +17,6 @@ class DashboardController extends Controller
         $users = ModelMasyarakat::all();
         $jumlahUsers = count($users);
         $jumlahLaporan = count($laporan);
-        return view('admin.dashboard', ['user' => $user, 'jumlah_laporan' => $jumlahLaporan, 'jumlah_user' => $jumlahUsers]);
+        return view('admin.dashboard.index', ['user' => $user, 'jumlah_laporan' => $jumlahLaporan, 'jumlah_user' => $jumlahUsers, 'title' => 'Dashboard']);
     }
 }

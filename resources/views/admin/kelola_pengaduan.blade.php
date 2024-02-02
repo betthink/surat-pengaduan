@@ -33,7 +33,6 @@
                                          <th>Nama terlapor</th>
                                          <th>Judul perkara</th>
                                          <th>Deskripsi</th>
-
                                          <th>Hasil</th>
                                          <th>Tanggal</th>
                                          <th>Rujukan</th>
@@ -59,6 +58,8 @@
                                                  <a href="{{ route('kelola.pengaduan', ['id' => $item['id']]) }}"
                                                      class="btn btn-success ml-2"><i
                                                          class="fa-solid fa-circle-down"></i></a>
+                                                 <a href="{{ route('delete-pengaduan', ['id' => $item['id']]) }}"
+                                                     class="btn btn-danger ml-2">Delete</i></a>
                                              </td>
                                          </tr>
                                          <div class="modal fade" id="detailModal{{ $item['id'] }}" tabindex="-1"
@@ -130,7 +131,7 @@
 
                                                  </div>
                                              </div>
-                                         </div>
+                                        
                                      @endforeach
 
                                  </tbody>

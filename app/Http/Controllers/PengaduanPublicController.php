@@ -11,11 +11,25 @@ use Illuminate\View\View;
 class PengaduanPublicController extends Controller
 {
     //
-    public function show(): View
+    public function show()
     {
+        $user = Auth::guard('publicusers')->user();
 
+        $all_kata_kunci = ModelKatakunci::all()->toArray();
+        // Buat array baru hanya untuk kategori 'pidana'
+        $dataPidana = array_filter($all_kata_kunci, function ($item) {
+            return $item['kategori'] === 'Pidana';
+        });
+        // Buat array baru hanya untuk kategori 'perdata'
+        $dataPerdata = array_filter($all_kata_kunci, function ($item) {
+            return $item['kategori'] === 'Perdata';
+        });
         return view('public.pengaduan', [
-            'title' => 'Pengaduan'
+            'title' => 'Pengaduan',
+            'user' => $user,
+            'kata_kunci' =>
+            ['pidana' => $dataPidana, 'perdata' => $dataPerdata]
+
         ]);
     }
     public function submit(Request $request)
@@ -54,14 +68,13 @@ class PengaduanPublicController extends Controller
         $list_kategori = ModelKatakunci::all()->toArray();
 
         foreach ($list_kategori as $kategoriModel) {
-            $kata = $kategoriModel['kata'];
+            $kata = strtolower($kategoriModel['kata']);
 
-            if (stripos($kalimat, $kata) !== false) {
+            if (stripos(strtolower($kalimat), $kata) !== false) {
                 $kategori = $kategoriModel['kategori']; // Mengambil nama kategori dari model
                 break; // Keluar dari perulangan jika menemukan satu kata cocok
             }
         }
         return $kategori;
     }
-
 }

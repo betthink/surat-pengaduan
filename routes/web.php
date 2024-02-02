@@ -9,6 +9,8 @@ use App\Http\Controllers\KatakunciController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengaduanPublicController;
+use App\Http\Controllers\SuratController;
+use App\Models\ModelPengaduan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/registrasi', [AuthPublicController::class, 'show'])->name('public-register');
 Route::get('/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
 Route::post('/registrasi', [AuthPublicController::class, 'register'])->name('public-register');
+Route::get('/pdf', [SuratController::class, 'viewPdf'])->name('pdf');
 
 // login
 Route::get('/', function () {
@@ -49,10 +52,12 @@ Route::get('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin
 Route::group(['middleware' => 'auth.public'], function () {
     // Rute-rute yang memerlukan autentikasi untuk pengguna publik
     Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
+
     Route::get('/hasil', [HasilPublicController::class, 'show'])->name('public-hasil');
     Route::get('/hasil/{id}', [HasilPublicController::class, 'detail'])->name('public-hasil-detail');
     Route::get('/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
     Route::post('/pengaduan', [PengaduanPublicController::class, 'submit'])->name('public-pengaduan');
+    Route::post('/profile-update', [AuthPublicController::class, 'submitUpdate'])->name('update-profile');
 });
 Route::post('/login/admin', [AuthAdminController::class, 'login'])->name('login-admin');
 // Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');
@@ -62,16 +67,23 @@ Route::group(['middleware' => 'auth.admin'], function () {
     // Rute-rute yang memerlukan autentikasi untuk pengguna admin
     // dashboard
     Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+    Route::get('/pengaduan/table', [PengaduanController::class, 'table'])->name('pengaduan.table');
     // pengaduan
     Route::get('/kelola-pengaduan', [PengaduanController::class, 'show'])->name('kelola-pengaduan');
     Route::post('/kelola-pengaduan', [PengaduanController::class, 'update'])->name('kelola-pengaduan');
     Route::get('/kelola-pengaduan/{id}', [PengaduanController::class, 'detail'])->name('kelola.pengaduan');
     // Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduh'])->name('detail.pengaduan');
     Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduhPdf'])->name('detail.pengaduan');
+  
+    // delete pengaduan
+    Route::get('/kelola-pengaduan/delete/{id}', [PengaduanController::class, 'delete'])->name('delete-pengaduan');
+    Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduhPdf'])->name('unduh-pdf');
+    //   Route::get('/kelola-pengaduan/detail/{id}', [SuratController::class, 'downloadPDF'])->name('unduh-pdf');
     // masyarakat
     Route::get('/kelola-masyarakat', [MasyarakatController::class, 'show'])->name('kelola-masyarakat');
-    Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');
-    Route::get('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatView'])->name('edit-masyarakat');
+    Route::get('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah.masyarakat');
+    Route::get('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatView'])->name('edit.masyarakat');
     Route::put('/edit-masyarakat/{id}', [MasyarakatController::class, 'updateMasyarakatData'])->name('edit-masyarakat');
     Route::post('/tambah-masyarakat', [MasyarakatController::class, 'addMasyarakat'])->name('tambah-masyarakat');
     Route::delete('/hapus-masyarakat/{id}', [MasyarakatController::class, 'deleteMasyarakat'])->name('hapus.masyarakat');

@@ -18,17 +18,21 @@ class MasyarakatController extends Controller
     {
         $user = Auth::guard('adminusers')->user();
         $users = ModelMasyarakat::all()->toArray();
-        return view('admin.kelola_masyarakat', [
-            'username' => 'user01',
+        return view('admin.masyarakat.index', [
             'datauser' => $users,
-            'user' => $user
+            'user' => $user,
+            'title'=> 'Halaman Masyarakat'
         ]);
+        // return view('admin.kelola_masyarakat', [
+        //     'datauser' => $users,
+        //     'user' => $user
+        // ]);
     }
     public function addMasyarakat(Request $request)
     {
         if ($request->isMethod('get')) {
 
-            return view('admin.masyarakat.tambah_masyarakat');
+            return view('admin.masyarakat.tambah_masyarakat', ['title'=>'Halaman Masyarakat']);
         }
 
         $validatedData = $request->validate([
@@ -92,7 +96,7 @@ class MasyarakatController extends Controller
         if (!$user) {
             return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
         }
-        return view('admin.masyarakat.edit_masyarakat', ['user' => $user]);
+        return view('admin.masyarakat.edit_masyarakat', ['user' => $user, 'title'=> 'Edit data masyarakat']);
     }
 
     public function updateMasyarakatData(Request $request, int $id)
@@ -108,6 +112,8 @@ class MasyarakatController extends Controller
             'alamat' => 'required|string|max:255',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'nomor_telp' => 'required',
             'username' => [
                 'required',
                 'string',
@@ -125,6 +131,8 @@ class MasyarakatController extends Controller
         $user->nik = $validatedData['nik'];
         $user->tanggal_lahir = $request->tanggal_lahir;
         $user->username = $validatedData['username'];
+        $user->nomor_telp = $validatedData['nomor_telp'];
+        $user->jenis_kelamin = $validatedData['jenis_kelamin'];
         $result = $user->save();
         if ($result) {
             return redirect('/kelola-masyarakat')->with('success', 'Berhasil mengubah data penduduk');
