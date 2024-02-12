@@ -42,9 +42,15 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('cool-admin/css/theme.css') }}" rel="stylesheet" media="all">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
+    <style>
+        .modal-scrollable .modal-dialog {
+            max-height: calc(100vh - 100px);
+            /* 100px merupakan estimasi tinggi elemen lain di laman Anda */
+            overflow-y: auto;
+        }
+    </style>
 </head>
 
 <body class="animsition">
@@ -55,7 +61,7 @@
         {{-- contents --}}
     </div>
 
-    {{-- modal detail--}}
+    {{-- modal detail --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
@@ -105,8 +111,8 @@
         </div>
     </div>
     {{-- modal update --}}
-     <!-- Modal -->
-    <div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade modal-scrollable" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
             <div class="modal-content">
@@ -144,7 +150,7 @@
                         </div>
                         <div class="mb-3 px-3">
                             <label for="jenis_kelamin" class="form-label">Jenis kelamin</label>
-                            <select name="jenis_kelamin" class="form-select" id="jenis_kelamin">
+                            <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
                                 <option {{ $user->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }} value="Laki-laki">
                                     Laki-laki
                                 </option>

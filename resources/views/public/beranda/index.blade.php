@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="title-4">Welcome back
+                        <h1 class="title-4">Selamat datang
                             <span> @isset($user)
                                     {{ $user['username'] }}
                                 @endisset!</span>
@@ -18,32 +18,13 @@
                 </div>
             </div>
         </section>
-
-
         <!-- STATISTIC CHART-->
         <section class="statistic-chart">
             <div class="container">
+              
                 <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="title-5 m-b-35">Laporan</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <!-- CHART-->
-                        <div class="statistic-chart-1">
-                            <h3 class="title-3 m-b-30">Masive</h3>
-                            <div class="chart-wrap">
-                                <canvas id="widgetChart5"></canvas>
-                            </div>
-                            <div class="statistic-chart-1-note">
-                                <span class="big">10,368</span>
-                                <span>/ 16220 items sold</span>
-                            </div>
-                        </div>
-                        <!-- END CHART-->
-                    </div>
-                    <div class="col-md-6 col-lg-4">
+
+                    <div class="col-md-6">
                         <!-- TOP CAMPAIGN-->
                         <div class="top-campaign">
                             <h3 class="title-3 m-b-30">Kasus-kasus</h3>
@@ -63,7 +44,7 @@
                         </div>
                         <!-- END TOP CAMPAIGN-->
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6">
                         <!-- CHART PERCENT-->
                         <div class="chart-percent-2">
                             <h3 class="title-3 m-b-30">Total laporan</h3>

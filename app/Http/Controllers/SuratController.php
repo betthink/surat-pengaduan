@@ -27,6 +27,9 @@ class SuratController extends Controller
     {
 
         $user = Auth::guard('publicusers')->user();
+        $id_user = $user['id'];
+        $all_surat = ModelPengaduan::find($id_user);
+        dd($all_surat);
         return view('public.surat.index', ['title' => 'Halaman lihat surat', 'user' => $user]);
     }
 }
