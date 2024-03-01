@@ -4,10 +4,10 @@
             <div class="header3-wrap">
                 <div class="header__logo ">
                     <a class="text-light d-flex justify-content-between align-items-center w-75"
-                        href="{{ route('dashboard') }}">
+                        href="{{ route('Beranda') }}">
                         {{-- <img src="{{ asset('cool-admin/images/icon/logo.png ') }}" alt="Cool Admin" /> --}}
                         <i class="fa fa-book fa-2xl" aria-hidden="true"></i>
-                        <h3>Pengaduan</h3>
+                        <h3 class="text-light">Pengaduan</h3>
 
                     </a>
                 </div>
@@ -18,11 +18,11 @@
                                 <i class="fas fa-tachometer-alt"></i>Beranda
                                 <span class="bot-line"></span>
                             </a>
-                            <ul class="header3-sub-list list-unstyled">
+                            {{-- <ul class="header3-sub-list list-unstyled">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         <li>
                             <a href="{{ route('public-pengaduan') }}">
@@ -119,7 +119,7 @@
                                         <i class="zmdi zmdi-power"></i>Surat</a>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
                                         <i class="zmdi zmdi-power"></i>Profile</a>
                                 </div>
                                 <div class="account-dropdown__footer">

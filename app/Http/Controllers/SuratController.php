@@ -28,8 +28,10 @@ class SuratController extends Controller
 
         $user = Auth::guard('publicusers')->user();
         $id_user = $user['id'];
-        $all_surat = ModelPengaduan::find($id_user);
-        dd($all_surat);
-        return view('public.surat.index', ['title' => 'Halaman lihat surat', 'user' => $user]);
+        $all_surat = ModelPengaduan::all();
+        $selected = $all_surat->filter(function ($item) {
+            return $item['id_user'] == 64;
+        })->toArray();
+        return view('public.surat.index', ['title' => 'Halaman lihat surat', 'user' => $user, 'list_surat' => $selected]);
     }
 }
