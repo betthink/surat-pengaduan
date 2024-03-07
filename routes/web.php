@@ -52,7 +52,7 @@ Route::get('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin
 Route::group(['middleware' => 'auth.public'], function () {
     // Rute-rute yang memerlukan autentikasi untuk pengguna publik
     Route::get('/Beranda', [BerandaController::class, 'show'])->name('Beranda');
-
+    Route::get('/kelola-pengaduan/detail/{id}', [PengaduanController::class, 'unduh'])->name('unduh-surat');
     Route::get('/hasil', [HasilPublicController::class, 'show'])->name('public-hasil');
     Route::get('/hasil/{id}', [HasilPublicController::class, 'detail'])->name('public-hasil-detail');
     Route::get('/pengaduan', [PengaduanPublicController::class, 'show'])->name('public-pengaduan');
@@ -61,6 +61,8 @@ Route::group(['middleware' => 'auth.public'], function () {
 
     // public surat
     Route::get('/surat', [SuratController::class, 'show_surat'])->name('daftar-surat');
+    Route::get('/surat/{id}', [SuratController::class, 'detail_surat'])->name('public-detail-surat');
+    Route::get('/surat/unduh/{id}', [SuratController::class, 'public_unduh'])->name('public-unduh-pdf');
 });
 Route::post('/login/admin', [AuthAdminController::class, 'login'])->name('login-admin');
 // Route::post('/admin/login', [AdminController::class, 'signin'])->name('login-admin');

@@ -7,23 +7,56 @@
                 <div class="col-md-12">
                     <h3 class="title-5 m-b-35">Hasil laporan penduduk</h3>
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title"> Kasus terbaru
-                                <small>
-                                    <span
-                                        class="badge  {{ $dataHasil[0]['status'] === 'Diproses' ? 'badge-warning  ' : 'badge-success  ' }}float-right mt-1">
-                                        {{ $dataHasil[0]['status'] }}</span>
-                                </small>
-                            </strong>
-                        </div>
+                       <div class="card-header d-flex justify-content-between">
+    <strong class="card-title">
+        <span>Kasus terbaru</span>
+    </strong>
+    <a href="{{ route('public-detail-surat', ['id' => $dataHasil[0]['id']]) }}" class="btn btn-success text-light">
+       <i class="fas fa-download"></i></a>
+    </a>
+</div>
+
                         <div class="card-body">
-                            <h5>{{ $dataHasil[0]['nama_terlapor'] }}</h5>
-                            <p class="card-text"> {{ $dataHasil[0]['deskripsi'] }}
-                            </p>
-                            <p>{{ $dataHasil[0]['judul_perkara'] }}</p>
-                            <p>{{ $dataHasil[0]['rujukan'] }}</p>
-                            <p>{{ $dataHasil[0]['hasil'] }}</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>Nama Terlapor</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>{{ $dataHasil[0]['nama_terlapor'] }}</h5>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <span>Deskripsi</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>{{ $dataHasil[0]['deskripsi'] }}</h5>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <span>Judul perkara</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>{{ $dataHasil[0]['judul_perkara'] }}</h5>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <span>Rujukan</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>{{ $dataHasil[0]['rujukan'] }}</h5>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <span>Hasil</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>{{ $dataHasil[0]['hasil'] }}</h5>
+                                </div>
+                            </div>
                         </div>
+
+
+
                     </div>
                     <div class="table-responsive table-responsive-data2">
                         <table class="table table-data2">
@@ -58,11 +91,12 @@
                                             <td>{{ $data['rujukan'] }}</td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                                        title="Detail" data-toggle="modal"
+                                                    <a href="{{ route('public-detail-surat', ['id' => $data['id']]) }}"
+                                                        class="item" data-toggle="tooltip" data-placement="top"
+                                                        title="Surat" data-toggle="modal"
                                                         data-target="#mediumModal{{ $data['id'] }}">
                                                         <i class="zmdi zmdi-more"></i>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

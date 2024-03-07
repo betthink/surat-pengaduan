@@ -3,56 +3,66 @@
     <!-- PAGE CONTENT-->
     <div class="page-content--bgf7">
 
-        <!-- WELCOME-->
-        <section class="welcome p-t-10 pt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="title-4">Welcome back
-                            <span> @isset($user)
-                                    {{ $user['username'] }}
-                                @endisset!</span>
-                        </h1>
-                        <hr class="line-seprate">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
         <!-- STATISTIC CHART-->
-        <section class="statistic-chart">
+        <section class="">
             <div class="container">
+              
+                {{-- surat heres --}}
                 <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="title-5 m-b-35">Surat</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <!-- CHART-->
-                        <div class="statistic-chart-1">
-                            <h3 class="title-3 m-b-30">Masive</h3>
-                            <div class="chart-wrap">
-                                <canvas id="widgetChart5"></canvas>
+                    <div class="col-lg-12">
+                        <!-- USER DATA-->
+                        <div class="user-data m-b-30">
+                            <h3 class="title-3 m-b-30">
+                              </i>Surat - surat pengantar pengaduan
+                            </h3>
+
+                            <div class="table-responsive table-data">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <td>Kategori laporan</td>
+                                            <td>judul perkara</td>
+                                            <td>terlapor</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($list_surat as $item)
+                                            <tr>
+
+                                                <td>
+                                                    <div class="table-data__info">
+
+                                                        <span>
+                                                            {{ $item['hasil'] }}
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="role admin">{{ $item['judul_perkara'] }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="role admin">{{ $item['nama_terlapor'] }}</span>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('public-detail-surat', ['id' => $item['id']]) }}"
+                                                        class="">
+                                                        <i class="fas fa-download"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="statistic-chart-1-note">
-                                <span class="big">10,368</span>
-                                <span>/ 16220 items sold</span>
-                            </div>
+
                         </div>
-                        <!-- END CHART-->
+                        <!-- END USER DATA-->
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                    
-                    </div>
-                   
+
                 </div>
             </div>
         </section>
-        <!-- END STATISTIC CHART-->
-
-
-
     </div>
 @endsection

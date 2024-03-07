@@ -15,23 +15,19 @@
                     <ul class="list-unstyled">
                         <li class="has-sub">
                             <a href="{{ route('Beranda') }}">
-                                <i class="fas fa-tachometer-alt"></i>Beranda
+                                <i class="fas fa-home"></i>Beranda
                                 <span class="bot-line"></span>
                             </a>
-                            {{-- <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                            </ul> --}}
+
                         </li>
                         <li>
                             <a href="{{ route('public-pengaduan') }}">
-                                <i class="fas fa-shopping-basket"></i>
+                                <i class="far fa-envelope-open"></i>
                                 <span class="bot-line"></span>Pengaduan</a>
                         </li>
                         <li>
                             <a href="{{ route('public-hasil') }}">
-                                <i class="fas fa-trophy"></i>
+                         <i class="fas fa-balance-scale"></i>
                                 <span class="bot-line"></span>Hasil</a>
                         </li>
                         {{-- <li class="has-sub">
@@ -105,22 +101,20 @@
                                 <div class="info clearfix">
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">
-                                                @isset($user)
-                                                    {{ $user['username'] }}
-                                                @endisset
-                                            </a>
+                                            @isset($user)
+                                                {{ $user['username'] }}
+                                            @endisset
                                         </h5>
                                     </div>
                                 </div>
 
-                                <div class="account-dropdown__footer">
+                                {{-- <div class="account-dropdown__footer">
                                     <a href="{{ route('daftar-surat') }}">
                                         <i class="zmdi zmdi-power"></i>Surat</a>
-                                </div>
+                                </div> --}}
                                 <div class="account-dropdown__footer">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                        <i class="zmdi zmdi-power"></i>Profile</a>
+                                        <i class="far fa-user"></i>Profile</a>
                                 </div>
                                 <div class="account-dropdown__footer">
                                     <a href="{{ route('public-logout') }}">

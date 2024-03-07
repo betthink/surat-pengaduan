@@ -81,7 +81,6 @@ class PengaduanController extends Controller
     public function unduh(int $id)
     {
         // Temukan pengaduan berdasarkan ID
-
         $dataGabung = DB::table('laporan')
             ->join('masyarakat', 'laporan.id_user', '=', 'masyarakat.id')
             ->select('laporan.*', 'masyarakat.*') // Mengambil semua kolom dari tabel masyarakat

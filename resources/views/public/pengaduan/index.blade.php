@@ -5,16 +5,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Pengaduan</h3>
                     {{-- content --}}
                     <div class="card">
-                        <div class="card-header">Buat laporan </div>
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h3 class="text-center title-2">Isi data</h3>
-                            </div>
-                            <hr>
-                            <form action="" method="POST"novalidate="novalidate">
+                        <div class="card-header">
+                            <h2>Buat laporan</h2>
+                        </div>
+                        <div class="card-body container">
+                           
+                            <form class="container" action="" method="POST"novalidate="novalidate">
                                 @csrf <!-- Tambahkan CSRF token untuk keamanan -->
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -47,9 +45,10 @@
                                     @enderror
                                 </div>
                                 <div>
-                                    <button id="submit-button" type="submit" class="au-btn--submit  text-white btn-block d-flex justify-content-center ">
+                                    <button id="submit-button" type="submit"
+                                        class="au-btn--submit  text-white btn-block d-flex justify-content-center ">
                                         {{-- <i class="fa fa-lock fa-lg"></i> --}}
-                                        <span id="submit-button">Buat laporan</span>
+                                        <span id="submit-button">Submit</span>
                                         <span id="submit-button" style="display:none;">Sending…</span>
                                     </button>
                                 </div>
