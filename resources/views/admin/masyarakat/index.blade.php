@@ -54,7 +54,7 @@
                                                    title="Hapus">
                                                    @csrf
                                                    @method('DELETE')
-                                                   <button type="submit">
+                                                   <button  onclick="return confirm('Apakah Anda yakin ingin menghapus penduduk?')" type="submit">
                                                        <i class="zmdi zmdi-delete"></i> </button>
                                                </form>
                                            </div>

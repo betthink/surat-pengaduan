@@ -25,7 +25,7 @@
                       </li> --}}
                       <li class="{{ $title === 'Dashboard' ? 'active' : '' }}">
                           <a href="{{ route('dashboard') }}">
-                              <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                              <i class="fas fa-home"></i> Dashboard </a>
                       </li>
                       <li class="{{ $title === 'Pengaduan' ? 'active' : '' }} ">
                           <a href="{{ route('kelola-pengaduan') }}">
@@ -33,11 +33,11 @@
                       </li>
                       <li class="{{ $title === 'Halaman Masyarakat' ? 'active' : '' }} ">
                           <a href="{{ route('kelola-masyarakat') }}">
-                              <i class="fas fa-table"></i>Masyarakat</a>
+                              <i class="fas fa-users"></i>Masyarakat</a>
                       </li>
                       <li class="{{ $title === 'Halaman kelola kata kunci' ? 'active' : '' }}">
                           <a href="{{ route('kelola-kata-kunci') }}">
-                              <i class="far fa-check-square"></i>Kata kunci</a>
+                              <i class="fas fa-key"></i>Kata kunci</a>
                       </li>
 
                   </ul>

@@ -6,17 +6,18 @@
             <div class="row">
                 <div class="col-md-12">
                     {{-- content --}}
+                  
                     <div class="card">
                         <div class="card-header">
-                            <h2>Buat laporan</h2>
+                            <h3 class="title-5">Buat laporan</h3>
                         </div>
                         <div class="card-body container">
-                           
+
                             <form class="container" action="" method="POST"novalidate="novalidate">
                                 @csrf <!-- Tambahkan CSRF token untuk keamanan -->
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="nama_terlapor" class="control-label mb-1">Nama terlapor</label>
+                                        <label for="nama_terlapor" class="control-label mb-1 ">Nama terlapor</label>
                                         <input placeholder="Masukkan nama terlapor" id="cc-pament" name="nama_terlapor"
                                             type="text" class="form-control" aria-required="true" aria-invalid="false">
                                         @error('nama_terlapor')

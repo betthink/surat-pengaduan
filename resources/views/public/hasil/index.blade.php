@@ -5,16 +5,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Hasil laporan penduduk</h3>
+                    <h3 class=" m-b-35">Hasil laporan penduduk</h3>
                     <div class="card">
-                       <div class="card-header d-flex justify-content-between">
-    <strong class="card-title">
-        <span>Kasus terbaru</span>
-    </strong>
-    <a href="{{ route('public-detail-surat', ['id' => $dataHasil[0]['id']]) }}" class="btn btn-success text-light">
-       <i class="fas fa-download"></i></a>
-    </a>
-</div>
+                        <div class="card-header d-flex justify-content-between">
+                            <strong class="card-title">
+                                <span>Kasus terbaru</span>
+                            </strong>
+                            <a href="{{ route('public-detail-surat', ['id' => $dataHasil[0]['id']]) }}"
+                                class="btn btn-secondary text-light">
+                                <i class="fas fa-download"></i></a>
+                            </a>
+                        </div>
 
                         <div class="card-body">
                             <div class="row">
@@ -22,40 +23,38 @@
                                     <span>Nama Terlapor</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>{{ $dataHasil[0]['nama_terlapor'] }}</h5>
+                                    <p class="text-primary">{{ $dataHasil[0]['nama_terlapor'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
                                     <span>Deskripsi</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>{{ $dataHasil[0]['deskripsi'] }}</h5>
+                                    <p class="text-primary">{{ $dataHasil[0]['deskripsi'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
                                     <span>Judul perkara</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>{{ $dataHasil[0]['judul_perkara'] }}</h5>
+                                    <p class="text-primary">{{ $dataHasil[0]['judul_perkara'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
                                     <span>Rujukan</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>{{ $dataHasil[0]['rujukan'] }}</h5>
+                                    <p class="text-primary">{{ $dataHasil[0]['rujukan'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
                                     <span>Hasil</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>{{ $dataHasil[0]['hasil'] }}</h5>
+                                    <p class="text-primary">{{ $dataHasil[0]['hasil'] }}</p>
                                 </div>
                             </div>
                         </div>
-
-
 
                     </div>
                     <div class="table-responsive table-responsive-data2">
@@ -92,47 +91,12 @@
                                             <td>
                                                 <div class="table-data-feature">
                                                     <a href="{{ route('public-detail-surat', ['id' => $data['id']]) }}"
-                                                        class="item" data-toggle="tooltip" data-placement="top"
-                                                        title="Surat" data-toggle="modal"
-                                                        data-target="#mediumModal{{ $data['id'] }}">
-                                                        <i class="zmdi zmdi-more"></i>
+                                                        class="item">
+                                                        <i class="fas fa-download"></i>
                                                     </a>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <!-- modal medium -->
-                                        <div class="modal fade" id="mediumModal{{ $data['id'] }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            There are three species of zebras: the plains zebra, the
-                                                            mountain zebra and the Grévy's zebra. The plains zebra and the
-                                                            mountain
-                                                            zebra belong to the subgenus Hippotigris, but Grévy's zebra is
-                                                            the sole species of subgenus Dolichohippus. The latter
-                                                            resembles an ass, to which it is closely related, while the
-                                                            former two are more horse-like. All three belong to the
-                                                            genus Equus, along with other living equids.
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Cancel</button>
-                                                        <button type="button" class="btn btn-primary">Confirm</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end modal medium -->
                                     @endforeach
                                 @endif
                             </tbody>

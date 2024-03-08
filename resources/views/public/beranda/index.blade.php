@@ -44,29 +44,7 @@
                         </div>
                         <!-- END TOP CAMPAIGN-->
                     </div>
-                    <div class="col-md-6">
-                        <!-- CHART PERCENT-->
-                        <div class="chart-percent-2">
-                            <h3 class="title-3 m-b-30">Total laporan</h3>
-                            <div class="chart-wrap">
-                                <canvas id="percent-chart2"></canvas>
-                                <div id="chartjs-tooltip">
-                                    <table></table>
-                                </div>
-                            </div>
-                            <div class="chart-info">
-                                <div class="chart-note">
-                                    <span class="dot dot--blue"></span>
-                                    <span>products</span>
-                                </div>
-                                <div class="chart-note">
-                                    <span class="dot dot--red"></span>
-                                    <span>Services</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END CHART PERCENT-->
-                    </div>
+                  
                 </div>
             </div>
         </section>

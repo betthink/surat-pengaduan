@@ -39,7 +39,7 @@
                                                          method="POST" class="">
                                                          @csrf
                                                          @method('DELETE')
-                                                         <button type="submit" class="item ">
+                                                         <button  onclick="return confirm('Apakah Anda yakin ingin menghapus kata kunci?')" type="submit" class="item ">
                                                              <i class="zmdi zmdi-delete"></i> </a>
                                                          </button>
                                                      </form>

@@ -34,7 +34,7 @@
                       <div class="overview__inner">
                           <div class="overview-box clearfix">
                               <div class="icon">
-                                  <i class="zmdi zmdi-shopping-cart"></i>
+                                 <i class="zmdi zmdi-card"></i>
                               </div>
                               <div class="text-light">
                                   <h2>{{ $jumlah_laporan }}</h2>
@@ -70,7 +70,8 @@
                       <div class="overview__inner">
                           <div class="overview-box clearfix">
                               <div class="icon">
-                                  <i class="zmdi zmdi-money"></i>
+                               <i class="zmdi zmdi-collection-text"></i>
+
                               </div>
                               <div class="text-light">
                                   <h2>{{ $pengaduanPerdata }}</h2>
