@@ -85,6 +85,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('update-profile') }}" method="post" class="card">
+                        
                         @csrf
                         <div class="mb-3 px-3">
                             <label for="username" class="form-label">Username</label>
@@ -122,15 +123,14 @@
                                 </option>
                             </select>
                         </div>
-
                         <div class="mb-3 px-3">
-                            <label for="tempat_lahir" class="form-label">tempat_lahir</label>
+                            <label for="tempat_lahir" class="form-label">Tempat lahir</label>
                             <input required name="tempat_lahir" value="{{ $user['tempat_lahir'] }}" type="text"
                                 class="form-control" id="tempat_lahir" placeholder="tempat_lahir">
                         </div>
                         <div class="mb-3 px-3">
-                            <label for="tempat_lahir" class="form-label">tempat_lahir</label>
-                            <input required name="tanggal_lahir" value="{{ $user['tanggal_lahir'] }}" type="text"
+                            <label for="tempat_lahir" class="form-label">Tanggal lahir</label>
+                            <input required name="tanggal_lahir" value="{{ $user['tanggal_lahir'] }}" type="date"
                                 class="form-control" id="tanggal_lahir" placeholder="tanggal lahir">
                         </div>
                         <div class="invisible form-group first">
@@ -149,7 +149,7 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             Swal.fire({
                                 title: 'Success!',
-                                text: "'{{ session('success') }}'",
+                                text: "{{ session('success') }}",
                                 icon: 'success',
                                 position: "top",
                                 showConfirmButton: false,
@@ -163,7 +163,7 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             Swal.fire({
                                 title: 'Gagal login!',
-                                text: "'{{ session('error') }}'",
+                                text: "{{ session('error') }}",
                                 icon: 'error',
                                 position: "top",
                                 showConfirmButton: false,

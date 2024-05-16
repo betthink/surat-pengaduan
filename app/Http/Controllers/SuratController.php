@@ -80,7 +80,8 @@ class SuratController extends Controller
         $templateProcessor->setValue('tanggal', $dataGabung->tanggal);
         $templateProcessor->setValue('rujukan', $dataGabung->rujukan);
         // $outputPath = storage_path('app/public/word-template/output.docx');
-        $filename = $dataGabung->judul_perkara;
+   
+        $filename = $dataGabung->judul_perkara . ' - ' . $dataGabung->nama;
         $templateProcessor->saveAs($filename . '.docx');
         // Buat respons unduhan untuk pengguna
         return response()->download($filename . '.docx')->deleteFileAfterSend();

@@ -47,7 +47,6 @@
         }
     </style>
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         @include('public.layouts.components.header')
@@ -67,7 +66,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="card">
-                        {{-- <img src="..." class="card-img-top" alt="..."> --}}
                         <div class="card-body d-flex justify-content-between">
                             <span>Username</span>
                             <p class="card-text ">{{ $user['username'] }}</p>
@@ -109,7 +107,6 @@
     <!-- Modal -->
     <div class="modal fade modal-scrollable" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit profile </h5>
@@ -129,17 +126,17 @@
                                 class="form-control" id="nama" placeholder="nama">
                         </div>
                         <div class="mb-3 px-3">
-                            <label for="nik" class="form-label">nik</label>
+                            <label for="nik" class="form-label">NIK</label>
                             <input required name="nik" value="{{ $user['nik'] }}" type="text"
                                 class="form-control" id="nik" placeholder="nik">
                         </div>
                         <div class="mb-3 px-3">
-                            <label for="alamat" class="form-label">alamat</label>
+                            <label for="alamat" class="form-label">Alamat</label>
                             <input required name="alamat" value="{{ $user['alamat'] }}" type="text"
                                 class="form-control" id="alamat" placeholder="alamat">
                         </div>
                         <div class="mb-3 px-3">
-                            <label for="nomor_telp" class="form-label">nomor_telp</label>
+                            <label for="nomor_telp" class="form-label">Nomor telp</label>
                             <input required name="nomor_telp" value="{{ $user['nomor_telp'] }}" type="text"
                                 class="form-control" id="nomor_telp" placeholder="nomor telpon">
                         </div>
@@ -154,15 +151,14 @@
                                 </option>
                             </select>
                         </div>
-
                         <div class="mb-3 px-3">
-                            <label for="tempat_lahir" class="form-label">tempat_lahir</label>
+                            <label for="tempat_lahir" class="form-label">Tempat lahir</label>
                             <input required name="tempat_lahir" value="{{ $user['tempat_lahir'] }}" type="text"
                                 class="form-control" id="tempat_lahir" placeholder="tempat_lahir">
                         </div>
                         <div class="mb-3 px-3">
-                            <label for="tempat_lahir" class="form-label">tempat_lahir</label>
-                            <input required name="tanggal_lahir" value="{{ $user['tanggal_lahir'] }}" type="text"
+                            <label for="tempat_lahir" class="form-label">Tempat lahir</label>
+                            <input required name="tanggal_lahir" value="{{ $user['tanggal_lahir'] }}" type="date"
                                 class="form-control" id="tanggal_lahir" placeholder="tanggal lahir">
                         </div>
                         <div class="invisible form-group first">

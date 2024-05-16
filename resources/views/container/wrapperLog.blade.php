@@ -61,7 +61,7 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             Swal.fire({
                                 title: 'Success!',
-                                text: "'{{ session('success') }}'",
+                                text: "{{ session('success') }}",
                                 icon: 'success',
                                 position: "top",
                                 showConfirmButton: false,
@@ -74,8 +74,8 @@
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             Swal.fire({
-                                title: 'Gagal login!',
-                                text: "'{{ session('error') }}'",
+                                title: 'Gagal!',
+                                text: "{{ session('error') }}",
                                 icon: 'error',
                                 position: "top",
                                 showConfirmButton: false,

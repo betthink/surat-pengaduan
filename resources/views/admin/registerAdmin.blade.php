@@ -31,7 +31,7 @@
 
                               </div>
                            
-                              <button type="submit" class="btn text-white btn-block btn-primary"> Log in</button>
+                              <button type="submit" class="btn text-white btn-block btn-primary"> Daftar</button>
                           </form>
                           <div class="mt-5">
                               <a class=" text-primary" href="{{ route('admin-login') }}" style="color: #fff">Log in Admin</a>
