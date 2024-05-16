@@ -23,11 +23,11 @@
 
                           </form>
                           <div class="register-link">
-                              <p>
+                              {{-- <p>
                                   Belum punya akun ?
                                   <a class=" text-primary" href="{{ route('admin-register') }}" style="color: #fff">Buat
                                       akun</a>
-                              </p>
+                              </p> --}}
                               <hr>
                               <p> <a class=" text-primary" href="{{ route('public-login') }}" style="color: #fff">Log in
                                       warga</a></p>

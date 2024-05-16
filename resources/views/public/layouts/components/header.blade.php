@@ -1,7 +1,7 @@
     <!-- HEADER DESKTOP-->
-    <header class="header-desktop3 d-none d-lg-block">
-        <div class="section__content section__content--p35">
-            <div class="header3-wrap">
+    <header class="header-desktop3 d-none d-lg-block ">
+        <div class="section__content section__content--p35 ">
+            <div class="header3-wrap ">
                 <div class="header__logo ">
                     <a class="text-light d-flex justify-content-between align-items-center w-75"
                         href="{{ route('Beranda') }}">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="header__navbar">
                     <ul class="list-unstyled">
-                        <li class="has-sub">
+                        <li class="">
                             <a href="{{ route('Beranda') }}">
                                 <i class="fas fa-home"></i>Beranda
                                 <span class="bot-line"></span>

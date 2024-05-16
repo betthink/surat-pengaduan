@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <strong class="card-title">
-                                <span>Kasus terbaru</span>
+                                <span class="font-weight-bold">Kasus terbaru</span>
                             </strong>
                             <a href="{{ route('public-detail-surat', ['id' => $dataHasil[0]['id']]) }}"
                                 class="btn btn-secondary text-light">
@@ -20,38 +20,39 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <span>Nama Terlapor</span>
+                                    <span class="font-weight-bold">Nama Terlapor</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="text-primary">{{ $dataHasil[0]['nama_terlapor'] }}</p>
+                                    <p class="text-secondary">{{ $dataHasil[0]['nama_terlapor'] }}</p>
                                 </div>
-                                <hr>
+                             
                                 <div class="col-md-6">
-                                    <span>Deskripsi</span>
+                                    <span class="font-weight-bold">Deskripsi</span>
                                 </div>
+                             
                                 <div class="col-md-6">
-                                    <p class="text-primary">{{ $dataHasil[0]['deskripsi'] }}</p>
-                                </div>
-                                <hr>
-                                <div class="col-md-6">
-                                    <span>Judul perkara</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="text-primary">{{ $dataHasil[0]['judul_perkara'] }}</p>
+                                    <p class="text-secondary">{{ $dataHasil[0]['deskripsi'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
-                                    <span>Rujukan</span>
+                                    <span class="font-weight-bold">Judul perkara</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="text-primary">{{ $dataHasil[0]['rujukan'] }}</p>
+                                    <p class="text-secondary">{{ $dataHasil[0]['judul_perkara'] }}</p>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
-                                    <span>Hasil</span>
+                                    <span class="font-weight-bold">Rujukan</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="text-primary">{{ $dataHasil[0]['hasil'] }}</p>
+                                    <p class="text-secondary">{{ $dataHasil[0]['rujukan'] }}</p>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <span class="font-weight-bold">Hasil</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-secondary">{{ $dataHasil[0]['hasil'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +80,12 @@
                                         <tr class="tr-shadow">
                                             <td>{{ $data['nama_terlapor'] }}</td>
                                             <td>
-                                                <span class="block-email">{{ $data['judul_perkara'] }}</span>
+                                                <span class="font-weight-bold" class="block-email">{{ $data['judul_perkara'] }}</span>
                                             </td>
                                             <td class="desc">{{ $data['hasil'] }}</td>
                                             <td>{{ $data['deskripsi'] }}</td>
                                             <td>
-                                                <span
+                                                <span class="font-weight-bold"
                                                     class="badge {{ $data['status'] === 'Diproses' ? 'badge-warning  ' : 'badge-success  ' }} ">{{ $data['status'] }}</span>
                                             </td>
                                             <td>{{ $data['rujukan'] }}</td>

@@ -47,16 +47,16 @@
                                 </div>
                                 <div>
                                     <button id="submit-button" type="submit"
-                                        class="au-btn--submit  text-white btn-block d-flex justify-content-center ">
+                                        class="au-btn--submit bg-secondary text-white btn-block d-flex justify-content-center ">
                                         {{-- <i class="fa fa-lock fa-lg"></i> --}}
-                                        <span id="submit-button">Submit</span>
+                                        <span id="submit-button">Laporkan</span>
                                         <span id="submit-button" style="display:none;">Sending…</span>
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-6">
                             <!-- TOP CAMPAIGN-->
                             <div class="top-campaign">
@@ -100,7 +100,7 @@
                             </div>
                             <!--  END TOP CAMPAIGN-->
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

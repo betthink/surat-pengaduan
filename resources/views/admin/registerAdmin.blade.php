@@ -1,6 +1,6 @@
   @extends('auth.layouts.wrapper_auth')
   @section('wrapper_auth')
-      <div class="container">
+      <div class="container">x
           <div class="row">
               <div class="col-md-6 order-md-2">
                   <img src="{{ asset('login-assets/images/undraw_file_sync_ot38.svg') }}" alt="Image" class="img-fluid">
@@ -38,9 +38,7 @@
                           </div>
                       </div>
                   </div>
-
               </div>
-
           </div>
           @if (session('success'))
               <script>
@@ -56,7 +54,6 @@
                   });
               </script>
           @endif
-
           @if ($errors->any())
               <script>
                   document.addEventListener('DOMContentLoaded', function() {
