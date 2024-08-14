@@ -25,7 +25,6 @@ class PengaduanController extends Controller
         $user = Auth::guard('adminusers')->user();
         $dataPengaduan = array_reverse(ModelPengaduan::all()->toArray());
         return view('admin.pengaduan.index', ['data' => $dataPengaduan, "user" => $user, 'title' => 'Pengaduan']);
-        // return view('admin.kelola_pengaduan', ['data' => $dataPengaduan, "user" => $user]);
     }
     public function updateView(int $id)
     {
@@ -106,6 +105,7 @@ class PengaduanController extends Controller
         $templateProcessor->setValue('status', $dataGabung->status);
         $templateProcessor->setValue('hasil', $dataGabung->hasil);
         $templateProcessor->setValue('tanggal', $dataGabung->tanggal);
+        $templateProcessor->setValue('nik_terlapor', $dataGabung->nik_terlapor);
         $templateProcessor->setValue('rujukan', $dataGabung->rujukan);
         // $outputPath = storage_path('app/public/word-template/output.docx');
         $filename = $dataGabung->judul_perkara . ' - ' . $dataGabung->nama;

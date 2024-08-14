@@ -79,6 +79,7 @@ class SuratController extends Controller
         $templateProcessor->setValue('hasil', $dataGabung->hasil);
         $templateProcessor->setValue('tanggal', $dataGabung->tanggal);
         $templateProcessor->setValue('rujukan', $dataGabung->rujukan);
+        $templateProcessor->setValue('nik_terlapor', $dataGabung->nik_terlapor);
         // $outputPath = storage_path('app/public/word-template/output.docx');
    
         $filename = $dataGabung->judul_perkara . ' - ' . $dataGabung->nama;

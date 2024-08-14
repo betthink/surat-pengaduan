@@ -50,6 +50,7 @@ class PengaduanPublicController extends Controller
 
                 'nama_terlapor' => 'required|string',
                 'judul_perkara' => 'required|string',
+                'nik_terlapor' => 'required|string',
                 'deskripsi' => 'required|string',
             ]);
         }
@@ -57,6 +58,7 @@ class PengaduanPublicController extends Controller
         $DataPengaduan->nama_terlapor = $request->nama_terlapor;
         $DataPengaduan->judul_perkara = $request->judul_perkara;
         $DataPengaduan->deskripsi = $request->deskripsi;
+        $DataPengaduan->nik_terlapor = $request->nik_terlapor;
         $DataPengaduan->status = 'Diproses';
         // 
         $DataPengaduan->hasil = $kategori;

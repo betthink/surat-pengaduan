@@ -54,6 +54,12 @@
                                 <div class="col-md-6">
                                     <p class="text-secondary">{{ $dataHasil[0]['hasil'] }}</p>
                                 </div>
+                                <div class="col-md-6">
+                                    <span class="font-weight-bold">NIK Terlapor</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-secondary">{{ $dataHasil[0]['nik_terlapor'] }}</p>
+                                </div>
                             </div>
                         </div>
 
@@ -67,6 +73,7 @@
                                     <th>hasil</th>
                                     <th>Deskripsi</th>
                                     <th>status</th>
+                                    <th>NIK Terlapor</th>
                                     <th>Rujukan</th>
                                     <th></th>
                                 </tr>
@@ -88,6 +95,7 @@
                                                 <span class="font-weight-bold"
                                                     class="badge {{ $data['status'] === 'Diproses' ? 'badge-warning  ' : 'badge-success  ' }} ">{{ $data['status'] }}</span>
                                             </td>
+                                            <td>{{ $data['nik_terlapor'] }}</td>
                                             <td>{{ $data['rujukan'] }}</td>
                                             <td>
                                                 <div class="table-data-feature">

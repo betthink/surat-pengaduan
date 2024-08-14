@@ -37,6 +37,16 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="nik_terlapor" class="control-label mb-1 ">NIK Terlapor</label>
+                                        <input placeholder="Masukkan NIK terlapor" id="cc-pament" name="nik_terlapor"
+                                            type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                        @error('nik_terlapor')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="deskripsi" class="control-label mb-1">Deskripsi</label>
                                     <textarea name="deskripsi" id="deskripsi" rows="9" placeholder="Masukkan deskripsi" class="form-control"></textarea>
@@ -44,7 +54,7 @@
                                     @error('deskripsi')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                </div>
+                                </div>z
                                 <div>
                                     <button id="submit-button" type="submit"
                                         class="au-btn--submit bg-secondary text-white btn-block d-flex justify-content-center ">

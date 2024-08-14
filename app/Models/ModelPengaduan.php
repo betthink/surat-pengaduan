@@ -20,11 +20,12 @@ class ModelPengaduan extends Model
         'tanggal',
         'rujukan',
         'id_user',
+        'nik_terlapor'
     ];
 
     public function suratpengaduan()
     {
 
-        return $this->belongsTo(ModelMasyarakat::class, 'id_user','id' );
+        return $this->belongsTo(ModelMasyarakat::class, 'id_user', 'id');
     }
 }
